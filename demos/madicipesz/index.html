@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mádi Cipész — Cipész és kulcsmásoló</title>
+<meta name="description" content="Mádi Imre cipész 3 fővárosi üzletében: javítás, átalakítás, kulcsmásolás. A FEMINA is a város 3 legjobb cipésze közé sorolta.">
+<style>
+  :root{
+    --primary:#6b4226; --dark:#432915; --gold:#c9973f;
+    --cream:#faf6f0; --ink:#2b2118; --muted:#7a6a5c; --white:#fff; --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6}
+  img{max-width:100%}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+
+  nav{position:sticky;top:0;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid #e8ddd0;z-index:10}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:1100px;margin:0 auto}
+  .logo{font-weight:800;font-size:1.25rem;color:var(--primary);text-decoration:none}
+  .logo span{color:var(--gold)}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{color:var(--ink);text-decoration:none;font-size:.95rem}
+  .nav-links a:hover{color:var(--primary)}
+  .btn{display:inline-block;background:var(--primary);color:#fff!important;padding:10px 22px;border-radius:999px;text-decoration:none;font-weight:600;transition:.2s}
+  .btn:hover{background:var(--dark);transform:translateY(-1px)}
+  .btn.gold{background:var(--gold)}
+  .btn.gold:hover{background:#b3842f}
+  .burger{display:none;background:none;border:0;font-size:1.6rem;cursor:pointer;color:var(--primary)}
+
+  header{background:linear-gradient(135deg,var(--dark) 0%,var(--primary) 70%,#7a5f4f 100%);color:#fff;padding:90px 0 70px}
+  .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+  .hero h1{font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.15;margin-bottom:18px}
+  .hero h1 em{color:var(--gold);font-style:normal}
+  .hero p{font-size:1.15rem;opacity:.92;margin-bottom:28px;max-width:32rem}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:var(--radius);padding:28px}
+  .hero-card h3{color:var(--gold);margin-bottom:14px}
+  .hero-card li{list-style:none;padding:7px 0 7px 30px;position:relative}
+  .hero-card li::before{content:"\2713";position:absolute;left:0;color:var(--gold);font-weight:700}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:-38px auto 0;position:relative}
+  .stat{background:#fff;border-radius:var(--radius);padding:22px;text-align:center;box-shadow:0 10px 30px rgba(60,40,20,.12)}
+  .stat b{display:block;font-size:1.7rem;color:var(--primary)}
+  .stat span{color:var(--muted);font-size:.9rem}
+
+  section{padding:70px 0}
+  h2{font-size:2rem;color:var(--dark);margin-bottom:10px;text-align:center}
+  .sub{text-align:center;color:var(--muted);max-width:44rem;margin:0 auto 44px}
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .card{background:#fff;border-radius:var(--radius);padding:28px;box-shadow:0 4px 18px rgba(60,40,20,.07);transition:.2s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(60,40,20,.13)}
+  .card .ic{font-size:2rem;margin-bottom:12px}
+  .card h3{color:var(--primary);margin-bottom:8px;font-size:1.1rem}
+  .card p{color:var(--muted);font-size:.95rem}
+
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:s}
+  .step{text-align:center;padding:20px}
+  .step::before{counter-increment:s;content:counter(s);display:inline-flex;width:52px;height:52px;border-radius:50%;background:var(--gold);color:#fff;font-weight:800;font-size:1.3rem;align-items:center;justify-content:center;margin-bottom:14px}
+  .step h3{font-size:1.05rem;color:var(--dark);margin-bottom:6px}
+  .step p{color:var(--muted);font-size:.92rem}
+
+  .strip{background:var(--primary);color:#fff;text-align:center;padding:56px 20px;border-radius:var(--radius);margin:0 20px}
+  .strip h2{color:#fff}
+  .strip p{opacity:.9;margin-bottom:24px}
+
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+  .cinfo p{margin-bottom:12px}
+  .cinfo b{color:var(--primary)}
+  .phone-big{font-size:1.6rem;font-weight:800;color:var(--primary);text-decoration:none}
+  form .row{margin-bottom:14px}
+  input,textarea{width:100%;padding:12px 14px;border:1px solid #ddd0c0;border-radius:10px;font:inherit;background:#fff}
+  input:focus,textarea:focus{outline:2px solid var(--gold)}
+  footer{background:var(--dark);color:#cbb9a8;text-align:center;padding:28px 20px;font-size:.9rem}
+  footer a{color:var(--gold)}
+
+  .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .gal img{width:100%;height:190px;object-fit:cover;border-radius:10px;cursor:pointer;transition:.2s;box-shadow:0 3px 12px rgba(60,40,20,.12)}
+  .gal img:hover{transform:scale(1.03)}
+  #lightbox{display:none;position:fixed;inset:0;background:rgba(20,12,6,.92);z-index:50;align-items:center;justify-content:center;cursor:zoom-out}
+  #lightbox img{max-width:92vw;max-height:88vh;border-radius:8px}
+
+  .ptables{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .ptable{background:#fff;border-radius:var(--radius);padding:24px;box-shadow:0 4px 18px rgba(60,40,20,.07)}
+  .ptable h3{color:var(--primary);margin-bottom:12px}
+  .ptable table{width:100%;border-collapse:collapse;font-size:.93rem}
+  .ptable td{padding:8px 6px;border-bottom:1px solid #f0e7da}
+  .ptable td:last-child{text-align:right;white-space:nowrap;font-weight:600;color:var(--dark)}
+  .pnote{color:var(--muted);font-size:.85rem;margin-top:18px;text-align:center}
+
+  .faq{max-width:46rem;margin:0 auto}
+  .faq details{background:#fff;border-radius:10px;margin-bottom:10px;box-shadow:0 3px 12px rgba(60,40,20,.06);overflow:hidden}
+  .faq summary{padding:16px 20px;font-weight:600;cursor:pointer;color:var(--dark);list-style:none;position:relative;padding-right:44px}
+  .faq summary::after{content:"+";position:absolute;right:18px;top:12px;font-size:1.4rem;color:var(--gold)}
+  .faq details[open] summary::after{content:"\2013"}
+  .faq details p{padding:0 20px 16px;color:var(--muted)}
+
+  #gdpr{display:none;position:fixed;inset:0;background:rgba(20,12,6,.7);z-index:60;align-items:center;justify-content:center;padding:20px}
+  #gdpr .box{background:#fff;max-width:42rem;max-height:80vh;overflow:auto;border-radius:var(--radius);padding:32px}
+  #gdpr h3{color:var(--primary);margin-bottom:12px}
+  #gdpr p{font-size:.92rem;color:#4a3f34;margin-bottom:10px}
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--muted);margin-bottom:14px}
+  .consent input{width:auto;margin-top:3px}
+
+  @media(max-width:820px){.gal{grid-template-columns:1fr 1fr}.ptables{grid-template-columns:1fr}}
+  @media(max-width:820px){
+    .hero,.contact{grid-template-columns:1fr}
+    .grid{grid-template-columns:1fr 1fr}
+    .stats,.steps{grid-template-columns:1fr 1fr}
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;padding:18px;border-bottom:1px solid #e8ddd0}
+    .nav-links.open{display:flex}
+    .burger{display:block}
+  }
+  @media(max-width:520px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a class="logo" href="#">Mádi<span>Cipész</span></a>
+    <button class="burger" onclick="document.querySelector('.nav-links').classList.toggle('open')">\2630</button>
+    <div class="nav-links">
+      <a href="#szolgaltatasok">Szolgáltatások</a>
+      <a href="#galeria">Munkáink</a>
+      
+      <a href="#gyik">GYIK</a>
+      <a href="#kapcsolat">Kapcsolat</a>
+      <a class="btn gold" href="#kapcsolat">Ingyenes ajánlat</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap hero">
+    <div>
+      <h1>Lábbelije <em>új életre kel</em> — 3 budapesti üzletben</h1>
+      <p>Mádi Imre cipész 3 fővárosi üzletében: javítás, átalakítás, kulcsmásolás. A FEMINA is a város 3 legjobb cipésze közé sorolta.</p>
+      <div class="hero-cta">
+        <a class="btn gold" href="#kapcsolat">Kérek ajánlatot</a>
+        <a class="btn" href="#">📞 +36 1 216 5481</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Miért minket válasszon?</h3>
+      <ul><li>3 budapesti üzlet</li><li>A FEMINA által is ajánlott mester</li><li>Bankkártyás fizetés</li><li>Gyors, precíz munka</li><li>Immobiliser-kulcs másolás</li></ul>
+    </div>
+  </div>
+</header>
+
+<div class="wrap stats"><div class="stat"><b>3 üzlet</b><span>Budapesten</span></div><div class="stat"><b>Bankkártya</b><span>fizetés is</span></div><div class="stat"><b>Hétköznap</b><span>08–18 nyitva</span></div><div class="stat"><b>Rövid</b><span>határidők</span></div></div>
+
+<section id="szolgaltatasok">
+  <div class="wrap">
+    <h2>Szolgáltatásaink</h2>
+    <p class="sub">A csizmaszár szűkítésétől az immobiliser-kulcs másolásáig.</p>
+    <div class="grid"><div class="card"><div class="ic">🦠</div><h3>Cipőjavítás</h3><p>Talp- és sarokcsere, varrás, vízhatlanítás — gyorsan és tartósan.</p></div><div class="card"><div class="ic">🦴</div><h3>Cipőátalakítás</h3><p>Szár szűkítése, bővítése, kényelmetlen lábbeli átalakítása hordhatóvá.</p></div><div class="card"><div class="ic">🔑</div><h3>Kulcsmásolás</h3><p>Hagyományos és immobiliser-es (tokos) kulcsok másolása is.</p></div><div class="card"><div class="ic">👞</div><h3>Egyedi kérés</h3><p>Nem hétköznapi igények is — a mester őszintén megmondja, mi éri meg.</p></div><div class="card"><div class="ic">💳</div><h3>Bankkártya-elfogadás</h3><p>Visa, Mastercard, Maestro — kényelmes fizetés mindhárom üzletben.</p></div><div class="card"><div class="ic">📨</div><h3>Helyszíni tanácsadás</h3><p>Személyes konzultáció a Lónyay utcai üzletben a 9. kerületben.</p></div></div>
+  </div>
+</section>
+
+<section id="folyamat" style="background:#fff">
+  <div class="wrap">
+    <h2>Így dolgozunk</h2>
+    <p class="sub">Hozza el, mi elvégezzük.</p>
+    <div class="steps"><div class="step"><h3>Behozatal</h3><p>Elhozza a lábbelit vagy kulcsot a legközelebbi üzletbe.</p></div><div class="step"><h3>Felmérés</h3><p>A mester megmondja, mi javítható és mi éri meg.</p></div><div class="step"><h3>Javítás</h3><p>Gyors, szakértő kivitelezés — gyakran azonnal.</p></div><div class="step"><h3>Átvétel</h3><p>Újra hordható cipő vagy működő kulcs, garanciával.</p></div></div>
+  </div>
+</section>
+
+<div class="strip">
+  <h2>Kérjen ajánlatot most</h2>
+  <p>Írjon vagy hívjon — az első konzultáció és helyszíni felmérés díjmentes, kötelezettség nélkül.</p>
+  <a class="btn gold" href="#kapcsolat">Kapcsolatfelvétel</a>
+</div>
+
+<section id="galeria">
+  <div class="wrap">
+    <h2>Munkáink</h2>
+    <p class="sub">Válogatás korábbi munkáinkból — kattintson a képekre a nagyításhoz.</p>
+    <div class="gal">
+      <img src="https://picsum.photos/seed/madi1/600/400" alt="Cipőjavítás" loading="lazy"><img src="https://picsum.photos/seed/madi2/600/400" alt="Talpcsere" loading="lazy"><img src="https://picsum.photos/seed/madi3/600/400" alt="Kulcsmásolás" loading="lazy"><img src="https://picsum.photos/seed/madi4/600/400" alt="Sarokjavítás" loading="lazy"><img src="https://picsum.photos/seed/madi5/600/400" alt="Üzlet" loading="lazy"><img src="https://picsum.photos/seed/madi6/600/400" alt="Műhely" loading="lazy"><img src="https://picsum.photos/seed/madi7/600/400" alt="Átalakítás" loading="lazy"><img src="https://picsum.photos/seed/madi8/600/400" alt="Kész munka" loading="lazy">
+    </div>
+  </div>
+</section>
+<div id="lightbox" onclick="this.style.display='none'"><img id="lightbox-img" src="" alt="Nagyított kép"></div>
+
+<section id="gyik">
+  <div class="wrap">
+    <h2>Gyakori kérdések</h2>
+    <p class="sub">A leggyakrabban felmerülő kérdések és válaszaink.</p>
+    <div class="faq"><details><summary>Hol található az üzlet?</summary><p>1093 Budapest, Lónyay utca 58. (9. kerület) — további két fővárosi egységgel.</p></details><details><summary>Mikor van nyitva?</summary><p>Hétfőtől péntekig 08:00–18:00 között.</p></details><details><summary>Másolnak immobiliser-es kulcsot?</summary><p>Igen, az immobiliser-es (tokos) kulcsok másolását a Lónyai utcai üzletben végezzük.</p></details><details><summary>Lehet bankkártyával fizetni?</summary><p>Igen, Visa, Mastercard és Maestro kártyát is elfogadunk.</p></details></div>
+  </div>
+</section>
+
+<section id="kapcsolat">
+  <div class="wrap">
+    <h2>Kapcsolat</h2>
+    <p class="sub">Hívjon minket, vagy írjon — percek alatt elindul az ajánlatkérés.</p>
+    <div class="contact">
+      <div class="cinfo">
+        <p><a class="phone-big" href="#">+36 1 216 5481</a></p>
+        <p><b>Cím:</b><br>1093 Budapest, Lónyay utca 58. (további 2 bp. üzlet)</p>
+        <p><b>Nyitvatartás:</b><br>Hétfő–Péntek: 08:00–18:00</p>
+        <p><b>E-mail:</b> <a href="mailto:madi.imre@gmail.com">madi.imre@gmail.com</a></p>
+        <p><b>Mádi Imre E.V. (Cipész-Kulcsmásoló)</b><br>Adószám: nyilvántartás alatt<br>Cégjegyzékszám: —</p>
+      </div>
+      <form onsubmit="alert('Ez egy bemutató demó — az űrlap élesítése az átadás után történik.');return false;">
+        <div class="row"><input type="text" placeholder="Név" required></div>
+        <div class="row"><input type="tel" placeholder="Telefonszám" required></div>
+        <div class="row"><input type="email" placeholder="E-mail cím"></div>
+        <div class="row"><textarea rows="4" placeholder="Írja le röviden, miben segíthetünk..."></textarea></div>
+        <label class="consent"><input type="checkbox" required> Elolvastam és elfogadom az <a href="#" onclick="document.getElementById('gdpr').style.display='flex';return false;">Adatkezelési tájékoztatót</a>, és hozzájárulok adataim ajánlatkészítés céljából történő kezeléséhez.</label>
+        <button class="btn gold" type="submit" style="border:0;cursor:pointer;font-size:1rem">Ajánlat kérése</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2007–2026 Mádi Imre E.V. (Cipész-Kulcsmásoló) · Minden jog fenntartva ·
+  <a href="#" onclick="document.getElementById('gdpr').style.display='flex';return false;">Adatkezelési tájékoztató</a><br>
+  <em>Ez az oldal egy bemutató (demó) redesign-javaslat, nem a cég hivatalos honlapja. Eredeti oldal: <a href="https://madicipesz.hu">https://madicipesz.hu</a></em>
+</footer>
+
+<div id="gdpr" onclick="if(event.target===this)this.style.display='none'">
+  <div class="box">
+    <h3>Adatkezelési tájékoztató (kivonat)</h3>
+    <p><b>Adatkezelő:</b> Mádi Imre E.V. (Cipész-Kulcsmásoló) (adószám: nyilvántartás alatt, cégjegyzékszám: —).</p>
+    <p><b>A kezelt adatok köre:</b> az ajánlatkérő űrlapon megadott név, telefonszám, e-mail cím, cím, valamint az esetlegesen feltöltött fényképek.</p>
+    <p><b>Az adatkezelés célja:</b> ajánlat készítése és kapcsolatfelvétel az érdeklődővel. <b>Jogalapja:</b> az érintett hozzájárulása (GDPR 6. cikk (1) a) pont), illetve szerződéskötést megelőző lépések (6. cikk (1) b) pont).</p>
+    <p><b>Az adatkezelés időtartama:</b> az ajánlat érvényességéig, illetve a hozzájárulás visszavonásáig; szerződéskötés esetén a számviteli jogszabályok szerinti megőrzési ideig.</p>
+    <p><b>Adattovábbítás:</b> az adatokat harmadik félnek nem adjuk át, marketing célra nem használjuk.</p>
+    <p><b>Az Ön jogai:</b> tájékoztatást kérhet, kérheti adatai helyesbítését, törlését, az adatkezelés korlátozását, valamint panasszal élhet a NAIH-nál (naih.hu).</p>
+    <p><b>Kapcsolat adatkezelési ügyekben:</b> +36 1 216 5481.</p>
+    <p style="color:#999;font-style:italic">Ez a szöveg a demó részeként készült kivonat — élesítés előtt jogi ellenőrzése szükséges.</p>
+    <button class="btn" onclick="document.getElementById('gdpr').style.display='none'">Bezárás</button>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.gal img').forEach(im => {
+    im.addEventListener('click', () => {
+      document.getElementById('lightbox-img').src = im.src;
+      document.getElementById('lightbox').style.display = 'flex';
+    });
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.getElementById('lightbox').style.display = 'none';
+      document.getElementById('gdpr').style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>

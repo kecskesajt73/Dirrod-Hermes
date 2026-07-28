@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luna Fodrászstúdió — Fodrászat és hajstílus</title>
+<style>
+:root{--p:#b5437a;--d:#6e1f47;--g:#f4c542;--cr:#fdf3f8;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;color:#222;background:var(--cr);line-height:1.6}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{background:linear-gradient(135deg,var(--d),var(--p));color:#fff;padding:70px 0 90px}
+.nav{display:flex;justify-content:space-between;align-items:center;max-width:1080px;margin:0 auto;padding:0 20px}
+.logo{font-weight:800;font-size:1.4rem}
+.nav a{color:#fff;text-decoration:none;margin-left:18px;font-size:.95rem;opacity:.9}
+.hero{max-width:1080px;margin:30px auto 0;padding:0 20px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.hero h1{font-size:2.6rem;line-height:1.15;margin-bottom:16px}
+.hero h1 em{color:var(--g);font-style:normal}
+.hero p{font-size:1.1rem;opacity:.92;margin-bottom:24px}
+.btn{display:inline-block;background:var(--g);color:var(--d);padding:13px 26px;border-radius:30px;font-weight:700;text-decoration:none;font-size:1rem}
+.btn.ghost{background:transparent;border:2px solid #fff;color:#fff}
+.hero-card{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:16px;padding:22px}
+.hero-card h3{margin-bottom:10px;font-size:1.1rem}
+.hero-card ul{list-style:none;font-size:.95rem}
+.hero-card li{padding:5px 0;border-bottom:1px solid rgba(255,255,255,.15)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1080px;margin:-45px auto 0;padding:0 20px}
+.stat{background:#fff;border-radius:14px;padding:20px;text-align:center;box-shadow:0 6px 20px rgba(0,0,0,.08)}
+.stat b{display:block;font-size:1.7rem;color:var(--p)}
+.stat span{font-size:.85rem;color:#666}
+section{padding:64px 0}
+section h2{font-size:2rem;text-align:center;margin-bottom:8px;color:var(--d)}
+.sub{text-align:center;color:#666;margin-bottom:36px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc{background:#fff;border-radius:14px;padding:24px;box-shadow:0 4px 14px rgba(0,0,0,.06)}
+.svc .ico{font-size:2rem;margin-bottom:10px}
+.svc h3{color:var(--p);margin-bottom:8px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.step{text-align:center}
+.step .n{display:inline-flex;width:42px;height:42px;background:var(--p);color:#fff;border-radius:50%;align-items:center;justify-content:center;font-weight:800;margin-bottom:12px}
+.strip{background:var(--d);color:#fff;text-align:center;border-radius:18px;padding:44px 20px;max-width:1040px;margin:0 auto}
+.strip .btn{margin-top:18px}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal img{width:100%;height:170px;object-fit:cover;border-radius:12px}
+.faq details{background:#fff;border-radius:10px;padding:14px 18px;margin:8px auto;max-width:760px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.faq summary{font-weight:600;cursor:pointer}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:30px;max-width:880px;margin:0 auto}
+.cinfo p{margin:8px 0}
+.contact form .row{margin-bottom:10px}
+.contact input,.contact textarea{width:100%;padding:11px;border:1px solid #ccc;border-radius:8px;font-family:inherit}
+footer{background:var(--d);color:#fff;text-align:center;padding:30px 20px;font-size:.9rem}
+footer em{opacity:.7;font-size:.82rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav"><div class="logo">Luna Fodrászstúdió</div>
+    <nav><a href="#szolgaltatasok">Szolgáltatás</a><a href="#folyamat">Folyamat</a><a href="#kapcsolat">Kapcsolat</a></nav>
+  </div>
+  <div class="hero">
+    <div>
+      <h1>Haja <em>új fénye</em> — szakértő kezek között</h1>
+      <p>Modern fodrászstúdió Budapesten. Vágás, színezés, styling — trendi és időtálló fazonok, amik rád szabva készülnek.</p>
+      <a class="btn" href="#kapcsolat">Időpont foglalása</a>
+      <a class="btn ghost" href="#szolgaltatasok" style="margin-left:10px">Tudj meg többet</a>
+    </div>
+    <div class="hero-card">
+      <h3>Miért minket?</h3>
+      <ul><li>Belvárosi, könnyen megközelíthető</li><li>8+ év tapasztalat</li><li>Trendi és időtálló fazonok</li><li>Barátságos árak</li><li>Online időpontfoglalás</li></ul>
+    </div>
+  </div>
+</header>
+<div class="stats"><div class="stat"><b>8+ év</b><span>tapasztalat</span></div><div class="stat"><b>500+</b><span>elégedett vendég</span></div><div class="stat"><b>Budapest</b><span>Belváros</span></div><div class="stat"><b>5.0★</b><span>értékelés</span></div></div>
+
+<section id="szolgaltatasok"><div class="wrap">
+  <h2>Szolgáltatásaink</h2><p class="sub">A rövid igazítástól a teljes átalakításig.</p>
+  <div class="grid"><div class="svc"><div class="ico">💇</div><h3>Vágás, formázás</h3><p>Férfi, női és gyermek hajvágás — az arcformádhoz igazítva.</p></div><div class="svc"><div class="ico">🎨</div><h3>Színezés</h3><p>Balayage, melír, teljes szín — a legújabb trendek szerint.</p></div><div class="svc"><div class="ico">✨</div><h3>Styling</h3><p>Esküvői, buli- vagy mindennapi hajformázás.</p></div><div class="svc"><div class="ico">💆</div><h3>Kezelés</h3><p>Hajregeneráló és tápláló kezelések a selymes eredményért.</p></div><div class="svc"><div class="ico">🔥</div><h3>Dreadlock, rasta</h3><p>Speciális technikák is — a mester őszintén tanácsol.</p></div><div class="svc"><div class="ico">🪞</div><h3>Tanácsadás</h3><p>Személyes konzultáció: mi áll a legjobban neked.</p></div></div>
+</div></section>
+
+<section id="folyamat" style="background:#fff"><div class="wrap">
+  <h2>Így dolgozunk</h2><p class="sub">Három lépés a friss frizurához.</p>
+  <div class="steps"><div class="step"><span class="n">1</span><h3>Jelentkezés</h3><p>Foglalj időpontot online vagy telefonon.</p></div><div class="step"><span class="n">2</span><h3>Konzultáció</h3><p>Megbeszéljük, mi áll a legjobban neked.</p></div><div class="step"><span class="n">3</span><h3>Kivitelezés</h3><p>Professzionális vágás és színezés.</p></div><div class="step"><span class="n">4</span><h3>Öröm</h3><p>Tükör elé állsz — és mosolyogsz.</p></div></div>
+</div></section>
+
+<div class="strip">
+  <h2 style="color:#fff">Kérjen ajánlatot most</h2>
+  <p>Írj vagy hívj — az első konzultáció díjmentes.</p>
+  <a class="btn gold" href="#kapcsolat">Kapcsolatfelvétel</a>
+</div>
+
+<section id="galeria"><div class="wrap">
+  <h2>Munkáink</h2><p class="sub">Válogatás korábbi munkáinkból.</p>
+  <div class="gal"><img src="https://picsum.photos/seed/fhair1/600/400" alt="Vágás" loading="lazy"><img src="https://picsum.photos/seed/fhair2/600/400" alt="Színezés" loading="lazy"><img src="https://picsum.photos/seed/fhair3/600/400" alt="Styling" loading="lazy"><img src="https://picsum.photos/seed/fhair4/600/400" alt="Műhely" loading="lazy"><img src="https://picsum.photos/seed/fhair5/600/400" alt="Balayage" loading="lazy"><img src="https://picsum.photos/seed/fhair6/600/400" alt="Férfi vágás" loading="lazy"><img src="https://picsum.photos/seed/fhair7/600/400" alt="Esküvői" loading="lazy"><img src="https://picsum.photos/seed/fhair8/600/400" alt="Eredmény" loading="lazy"></div>
+</div></section>
+
+<section id="gyik" style="background:#fff"><div class="wrap">
+  <h2>Gyakori kérdések</h2><p class="sub">A leggyakrabban felmerülő kérdések és válaszaink.</p>
+  <div class="faq"><details><summary>Hol található a stúdió?</summary><p>Budapest belvárosában, könnyen megközelíthető helyen.</p></details><details><summary>Kell előre fizetni?</summary><p>Nem, az első alkalommal csak a szolgáltatás díja esedékes.</p></details><details><summary>Vállalnak esküvői hajat?</summary><p>Igen, külön esküvői csomaggal is dolgozunk.</p></details><details><summary>Meddig tart egy színezés?</summary><p>Függ a technikától, átlagosan 2–4 óra.</p></details></div>
+</div></section>
+
+<section id="kapcsolat"><div class="wrap">
+  <h2>Kapcsolat</h2><p class="sub">Várunk a stúdióban!</p>
+  <div class="contact">
+    <div class="cinfo">
+      <p><b>Cím:</b><br>Budapest, Belváros (pontos cím az időpontfoglaláskor)</p>
+      <p><b>Nyitvatartás:</b><br>H–P: 9–19, Szo: 9–14</p>
+      <p><b>E-mail:</b> <a href="mailto:info@luna-fodrasz.hu">info@luna-fodrasz.hu</a></p>
+      <p><b>Luna Fodrászstúdió E.V.</b></p>
+    </div>
+    <form onsubmit="alert('Bemutató demó — az űrlap élesítése átadáskor történik.');return false;">
+      <div class="row"><input type="text" placeholder="Név" required></div>
+      <div class="row"><input type="tel" placeholder="Telefonszám" required></div>
+      <div class="row"><input type="email" placeholder="E-mail cím"></div>
+      <div class="row"><textarea rows="4" placeholder="Üzenet..."></textarea></div>
+      <button class="btn" type="submit" style="border:0;cursor:pointer">Küldés</button>
+    </form>
+  </div>
+</div></section>
+
+<footer>
+  © 2019–2026 Luna Fodrászstúdió E.V. · Minden jog fenntartva<br>
+  <em>Ez egy bemutató (demó) redesign-javaslat, nem a cég hivatalos honlapja.</em>
+</footer>
+</body>
+</html>

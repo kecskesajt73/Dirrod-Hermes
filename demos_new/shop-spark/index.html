@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spark Webshop — Online áruház</title>
+<style>
+:root{--p:#6a3ea1;--d:#3d2160;--g:#f4c542;--cr:#f7f3fb;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;color:#222;background:var(--cr);line-height:1.6}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{background:linear-gradient(135deg,var(--d),var(--p));color:#fff;padding:70px 0 90px}
+.nav{display:flex;justify-content:space-between;align-items:center;max-width:1080px;margin:0 auto;padding:0 20px}
+.logo{font-weight:800;font-size:1.4rem}
+.nav a{color:#fff;text-decoration:none;margin-left:18px;font-size:.95rem;opacity:.9}
+.hero{max-width:1080px;margin:30px auto 0;padding:0 20px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.hero h1{font-size:2.6rem;line-height:1.15;margin-bottom:16px}
+.hero h1 em{color:var(--g);font-style:normal}
+.hero p{font-size:1.1rem;opacity:.92;margin-bottom:24px}
+.btn{display:inline-block;background:var(--g);color:var(--d);padding:13px 26px;border-radius:30px;font-weight:700;text-decoration:none;font-size:1rem}
+.btn.ghost{background:transparent;border:2px solid #fff;color:#fff}
+.hero-card{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:16px;padding:22px}
+.hero-card h3{margin-bottom:10px;font-size:1.1rem}
+.hero-card ul{list-style:none;font-size:.95rem}
+.hero-card li{padding:5px 0;border-bottom:1px solid rgba(255,255,255,.15)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1080px;margin:-45px auto 0;padding:0 20px}
+.stat{background:#fff;border-radius:14px;padding:20px;text-align:center;box-shadow:0 6px 20px rgba(0,0,0,.08)}
+.stat b{display:block;font-size:1.7rem;color:var(--p)}
+.stat span{font-size:.85rem;color:#666}
+section{padding:64px 0}
+section h2{font-size:2rem;text-align:center;margin-bottom:8px;color:var(--d)}
+.sub{text-align:center;color:#666;margin-bottom:36px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc{background:#fff;border-radius:14px;padding:24px;box-shadow:0 4px 14px rgba(0,0,0,.06)}
+.svc .ico{font-size:2rem;margin-bottom:10px}
+.svc h3{color:var(--p);margin-bottom:8px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.step{text-align:center}
+.step .n{display:inline-flex;width:42px;height:42px;background:var(--p);color:#fff;border-radius:50%;align-items:center;justify-content:center;font-weight:800;margin-bottom:12px}
+.strip{background:var(--d);color:#fff;text-align:center;border-radius:18px;padding:44px 20px;max-width:1040px;margin:0 auto}
+.strip .btn{margin-top:18px}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal img{width:100%;height:170px;object-fit:cover;border-radius:12px}
+.faq details{background:#fff;border-radius:10px;padding:14px 18px;margin:8px auto;max-width:760px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.faq summary{font-weight:600;cursor:pointer}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:30px;max-width:880px;margin:0 auto}
+.cinfo p{margin:8px 0}
+.contact form .row{margin-bottom:10px}
+.contact input,.contact textarea{width:100%;padding:11px;border:1px solid #ccc;border-radius:8px;font-family:inherit}
+footer{background:var(--d);color:#fff;text-align:center;padding:30px 20px;font-size:.9rem}
+footer em{opacity:.7;font-size:.82rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav"><div class="logo">Spark Webshop</div>
+    <nav><a href="#szolgaltatasok">Szolgáltatás</a><a href="#folyamat">Folyamat</a><a href="#kapcsolat">Kapcsolat</a></nav>
+  </div>
+  <div class="hero">
+    <div>
+      <h1>Vásárolj <em>okosan</em> — egy helyen</h1>
+      <p>Modern webshop: válogatott termékek, gyors szállítás, egyszerű visszaküldés. Nézd meg a kínálatot!</p>
+      <a class="btn" href="#kapcsolat">Időpont foglalása</a>
+      <a class="btn ghost" href="#szolgaltatasok" style="margin-left:10px">Tudj meg többet</a>
+    </div>
+    <div class="hero-card">
+      <h3>Miért minket?</h3>
+      <ul><li>24/7 nyitva</li><li>2 napos szállítás</li><li>Ingyenes visszaküldés</li><li>Biztonságos fizetés</li><li>Ügyfélszolgálat</li></ul>
+    </div>
+  </div>
+</header>
+<div class="stats"><div class="stat"><b>24/7</b><span>nyitva</span></div><div class="stat"><b>2 nap</b><span>szállítás</span></div><div class="stat"><b>1000+</b><span>termék</span></div><div class="stat"><b>Ingyenes</b><span>visszaküldés</span></div></div>
+
+<section id="szolgaltatasok"><div class="wrap">
+  <h2>Szolgáltatásaink</h2><p class="sub">Miért nálunk?</p>
+  <div class="grid"><div class="svc"><div class="ico">📦</div><h3>Gyors szállítás</h3><p>Rendeld meg, 2 napon belül nálad.</p></div><div class="svc"><div class="ico">↩️</div><h3>Könnyű visszaküldés</h3><p>Nem tetszik? 14 napon belül visszaküldöd.</p></div><div class="svc"><div class="ico">🔒</div><h3>Biztonságos fizetés</h3><p>Bankkártya és utánvétel is.</p></div><div class="svc"><div class="ico">⭐</div><h3>Minőségi termékek</h3><p>Csak ellenőrzött beszállítóktól.</p></div><div class="svc"><div class="ico">🎧</div><h3>Ügyfélszolgálat</h3><p>Kérdésedre gyors válasz.</p></div><div class="svc"><div class="ico">🏷️</div><h3>Akciók</h3><p>Rendszeres kedvezmények és kuponok.</p></div></div>
+</div></section>
+
+<section id="folyamat" style="background:#fff"><div class="wrap">
+  <h2>Így dolgozunk</h2><p class="sub">Így rendelsz.</p>
+  <div class="steps"><div class="step"><span class="n">1</span><h3>Böngészés</h3><p>Válaszd ki a terméket.</p></div><div class="step"><span class="n">2</span><h3>Kosár</h3><p>Add a kosárba, ellenőrizz.</p></div><div class="step"><span class="n">3</span><h3>Fizetés</h3><p>Bankkártya vagy utánvétel.</p></div><div class="step"><span class="n">4</span><h3>Kiszállítás</h3><p>2 napon belül megkapod.</p></div></div>
+</div></section>
+
+<div class="strip">
+  <h2 style="color:#fff">Kérjen ajánlatot most</h2>
+  <p>Regisztrálj és kapj 10% kedvezményt az első rendelésre!</p>
+  <a class="btn gold" href="#kapcsolat">Kapcsolatfelvétel</a>
+</div>
+
+<section id="galeria"><div class="wrap">
+  <h2>Munkáink</h2><p class="sub">Válogatás korábbi munkáinkból.</p>
+  <div class="gal"><img src="https://picsum.photos/seed/shop1/600/400" alt="Termék" loading="lazy"><img src="https://picsum.photos/seed/shop2/600/400" alt="Kosár" loading="lazy"><img src="https://picsum.photos/seed/shop3/600/400" alt="Szállítás" loading="lazy"><img src="https://picsum.photos/seed/shop4/600/400" alt="Csomag" loading="lazy"><img src="https://picsum.photos/seed/shop5/600/400" alt="Akció" loading="lazy"><img src="https://picsum.photos/seed/shop6/600/400" alt="Kupon" loading="lazy"><img src="https://picsum.photos/seed/shop7/600/400" alt="Webshop" loading="lazy"><img src="https://picsum.photos/seed/shop8/600/400" alt="Új termékek" loading="lazy"></div>
+</div></section>
+
+<section id="gyik" style="background:#fff"><div class="wrap">
+  <h2>Gyakori kérdések</h2><p class="sub">A leggyakrabban felmerülő kérdések és válaszaink.</p>
+  <div class="faq"><details><summary>Mikor kapom meg?</summary><p>2 munkanapon belül.</p></details><details><summary>Ingyenes a visszaküldés?</summary><p>Igen, 14 napon belül ingyenes.</p></details><details><summary>Hogyan fizethetek?</summary><p>Bankkártya, utánvétel és előre utalás is.</p></details><details><summary>Van áruház is?</summary><p>Csak online működünk, de az ügyfélszolgálat elérhető.</p></details></div>
+</div></section>
+
+<section id="kapcsolat"><div class="wrap">
+  <h2>Kapcsolat</h2><p class="sub">Kérdésed van? Írj nekünk!</p>
+  <div class="contact">
+    <div class="cinfo">
+      <p><b>Cím:</b><br>Online (raktár: Budapest)</p>
+      <p><b>Nyitvatartás:</b><br>24/7 online</p>
+      <p><b>E-mail:</b> <a href="mailto:hello@sparkshop.hu">hello@sparkshop.hu</a></p>
+      <p><b>Spark Webshop Kft.</b></p>
+    </div>
+    <form onsubmit="alert('Bemutató demó — az űrlap élesítése átadáskor történik.');return false;">
+      <div class="row"><input type="text" placeholder="Név" required></div>
+      <div class="row"><input type="tel" placeholder="Telefonszám" required></div>
+      <div class="row"><input type="email" placeholder="E-mail cím"></div>
+      <div class="row"><textarea rows="4" placeholder="Üzenet..."></textarea></div>
+      <button class="btn" type="submit" style="border:0;cursor:pointer">Küldés</button>
+    </form>
+  </div>
+</div></section>
+
+<footer>
+  © 2022–2026 Spark Webshop Kft. · Minden jog fenntartva<br>
+  <em>Ez egy bemutató (demó) redesign-javaslat, nem a cég hivatalos honlapja.</em>
+</footer>
+</body>
+</html>

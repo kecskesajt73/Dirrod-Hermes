@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZöldKert — Szolgáltatásaink Budapesten, gyorsan és garanciával</title>
+<meta name="description" content="Kerttervezés, fűmagvetés, automata öntözés, növényültetés, sövény, gyepszőnyeg. Ingyenes helyszíni felmérés, garancia a zöldre.">
+<style>
+  :root{
+    --brown:#3f8f4f; --brown-d:#245830; --cream:#f3f9f1; --gold:#a8d56b;
+    --ink:#1b2a1f; --muted:#5d7263; --white:#fff; --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6}
+  img{max-width:100%}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+
+  nav{position:sticky;top:0;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid #e8ddd0;z-index:10}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:1100px;margin:0 auto}
+  .logo{font-weight:800;font-size:1.25rem;color:var(--brown);text-decoration:none}
+  .logo span{color:var(--gold)}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{color:var(--ink);text-decoration:none;font-size:.95rem}
+  .nav-links a:hover{color:var(--brown)}
+  .btn{display:inline-block;background:var(--brown);color:#fff!important;padding:10px 22px;border-radius:999px;text-decoration:none;font-weight:600;transition:.2s}
+  .btn:hover{background:var(--brown-d);transform:translateY(-1px)}
+  .btn.gold{background:var(--gold)}
+  .btn.gold:hover{background:#b3842f}
+  .burger{display:none;background:none;border:0;font-size:1.6rem;cursor:pointer;color:var(--brown)}
+
+  header{background:linear-gradient(135deg,var(--brown-d) 0%,var(--brown) 70%,#7a4f35 100%);color:#fff;padding:90px 0 70px}
+  .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+  .hero h1{font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.15;margin-bottom:18px}
+  .hero h1 em{color:var(--gold);font-style:normal}
+  .hero p{font-size:1.15rem;opacity:.92;margin-bottom:28px;max-width:32rem}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:var(--radius);padding:28px}
+  .hero-card h3{color:var(--gold);margin-bottom:14px}
+  .hero-card li{list-style:none;padding:7px 0 7px 30px;position:relative}
+  .hero-card li::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:700}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:-38px auto 0;position:relative}
+  .stat{background:#fff;border-radius:var(--radius);padding:22px;text-align:center;box-shadow:0 10px 30px rgba(60,40,20,.12)}
+  .stat b{display:block;font-size:1.7rem;color:var(--brown)}
+  .stat span{color:var(--muted);font-size:.9rem}
+
+  section{padding:70px 0}
+  h2{font-size:2rem;color:var(--brown-d);margin-bottom:10px;text-align:center}
+  .sub{text-align:center;color:var(--muted);max-width:44rem;margin:0 auto 44px}
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .card{background:#fff;border-radius:var(--radius);padding:28px;box-shadow:0 4px 18px rgba(60,40,20,.07);transition:.2s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(60,40,20,.13)}
+  .card .ic{font-size:2rem;margin-bottom:12px}
+  .card h3{color:var(--brown);margin-bottom:8px;font-size:1.1rem}
+  .card p{color:var(--muted);font-size:.95rem}
+
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:s}
+  .step{text-align:center;padding:20px}
+  .step::before{counter-increment:s;content:counter(s);display:inline-flex;width:52px;height:52px;border-radius:50%;background:var(--gold);color:#fff;font-weight:800;font-size:1.3rem;align-items:center;justify-content:center;margin-bottom:14px}
+  .step h3{font-size:1.05rem;color:var(--brown-d);margin-bottom:6px}
+  .step p{color:var(--muted);font-size:.92rem}
+
+  .strip{background:var(--brown);color:#fff;text-align:center;padding:56px 20px;border-radius:var(--radius);margin:0 20px}
+  .strip h2{color:#fff}
+  .strip p{opacity:.9;margin-bottom:24px}
+
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+  .cinfo p{margin-bottom:12px}
+  .cinfo b{color:var(--brown)}
+  .phone-big{font-size:1.6rem;font-weight:800;color:var(--brown);text-decoration:none}
+  form .row{margin-bottom:14px}
+
+  input,textarea{width:100%;padding:12px 14px;border:1px solid #ddd0c0;border-radius:10px;font:inherit;background:#fff}
+  input:focus,textarea:focus{outline:2px solid var(--gold)}
+  footer{background:var(--brown-d);color:#cbb9a8;text-align:center;padding:28px 20px;font-size:.9rem}
+  footer a{color:var(--gold)}
+
+  .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .gal .gimg{width:100%;height:190px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:2.2rem;box-shadow:0 3px 12px rgba(60,40,20,.12)}
+  .gal .gimg:nth-child(odd){background:linear-gradient(135deg,var(--brown),var(--brown-d))}
+  .gal .gimg:nth-child(even){background:linear-gradient(135deg,var(--gold),#b3842f)}
+
+  .ptables{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .ptable{background:#fff;border-radius:var(--radius);padding:24px;box-shadow:0 4px 18px rgba(60,40,20,.07)}
+  .ptable h3{color:var(--brown);margin-bottom:12px}
+  .ptable table{width:100%;border-collapse:collapse;font-size:.93rem}
+  .ptable td{padding:8px 6px;border-bottom:1px solid #f0e7da}
+  .ptable td:last-child{text-align:right;white-space:nowrap;font-weight:600;color:var(--brown-d)}
+  .pnote{color:var(--muted);font-size:.85rem;margin-top:18px;text-align:center}
+
+  .faq{max-width:46rem;margin:0 auto}
+  .faq details{background:#fff;border-radius:10px;margin-bottom:10px;box-shadow:0 3px 12px rgba(60,40,20,.06);overflow:hidden}
+  .faq summary{padding:16px 20px;font-weight:600;cursor:pointer;color:var(--brown-d);list-style:none;position:relative;padding-right:44px}
+  .faq summary::after{content:"+";position:absolute;right:18px;top:12px;font-size:1.4rem;color:var(--gold)}
+  .faq details[open] summary::after{content:"–"}
+  .faq details p{padding:0 20px 16px;color:var(--muted)}
+
+  #gdpr{display:none;position:fixed;inset:0;background:rgba(20,12,6,.7);z-index:60;align-items:center;justify-content:center;padding:20px}
+  #gdpr .box{background:#fff;max-width:42rem;max-height:80vh;overflow:auto;border-radius:var(--radius);padding:32px}
+  #gdpr h3{color:var(--brown);margin-bottom:12px}
+  #gdpr p{font-size:.92rem;color:#4a3f34;margin-bottom:10px}
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--muted);margin-bottom:14px}
+  .consent input{width:auto;margin-top:3px}
+
+  @media(max-width:820px){.gal{grid-template-columns:1fr 1fr}.ptables{grid-template-columns:1fr}}
+  @media(max-width:820px){
+    .hero,.contact{grid-template-columns:1fr}
+    .grid{grid-template-columns:1fr 1fr}
+    .stats,.steps{grid-template-columns:1fr 1fr}
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;padding:18px;border-bottom:1px solid #e8ddd0}
+    .nav-links.open{display:flex}
+    .burger{display:block}
+  }
+  @media(max-width:520px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a class="logo" href="#">ZöldKert</a>
+    <button class="burger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <div class="nav-links">
+      <a href="#szolgaltatasok">Szolgáltatások</a>
+      <a href="#galeria">Munkáink</a>
+      <a href="#arak">Árak</a>
+      <a href="#gyik">GYIK</a>
+      <a href="#kapcsolat">Kapcsolat</a>
+      <a class="btn gold" href="#kapcsolat">Ingyenes árajánlat</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap hero">
+    <div>
+      <h1>Kertje <em>újjáéled</em> — 15+ év kertépítő tapasztalattal</h1>
+      <p>Kerttervezés, fűmagvetés, automata öntözés, növényültetés, sövény, gyepszőnyeg. Ingyenes helyszíni felmérés, garancia a zöldre.</p>
+      <div class="hero-cta">
+        <a class="btn gold" href="#kapcsolat">Kérek árajánlatot</a>
+        <a class="btn" href="#">+36 70 775 56 78</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>Miért minket válasszon?</h3>
+      <ul>
+        <li>Ingyenes helyszíni felmérés és árajánlat</li>
+        <li>Gyors, tiszta és megbízható kivitelezés</li>
+        <li>Szakértelem évtizedes tapasztalattal</li>
+        <li>Garancia minden munkára és anyagra</li>
+        <li>Rövid, kiszámítható határidők</li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<div class="wrap stats">
+  <div class="stat"><b>15+ év</b><span>szakmai tapasztalat</span></div>
+  <div class="stat"><b>400+</b><span>kert</span></div>
+  <div class="stat"><b>Öntözés</b><span>automatika</span></div>
+  <div class="stat"><b>100%</b><span>garancia</span></div>
+</div>
+
+<section id="szolgaltatasok">
+  <div class="wrap">
+    <h2>Szolgáltatásaink</h2>
+    <p class="sub">A gyepszőnyegtől a komplett kertig — a zöld az Ön kezében (nálunk).</p>
+    <div class="grid">
+      <div class="card"><div class="ic">🌱</div><h3>Kerttervezés</h3><p>Egyedi terv, növényválasztás, formák, évszakokra optimalizálva.</p></div>
+      <div class="card"><div class="ic">🌿</div><h3>Gyepszőnyeg</h3><p>Előkészítés, telepítés, első locsolás — azonnal zöld gyep.</p></div>
+      <div class="card"><div class="ic">💧</div><h3>Öntözőrendszer</h3><p>Automata esőérzékelős rendszer tervezése és kivitelezése.</p></div>
+      <div class="card"><div class="ic">🌳</div><h3>Növényültetés</h3><p>Fák, cserjék, évelők szakszerű ültetése, ápolása.</p></div>
+      <div class="card"><div class="ic">🌳</div><h3>Sövény, metszés</h3><p>Formára nyírt sövény, gyümölcsfák és díszfák metszése.</p></div>
+      <div class="card"><div class="ic">🍂</div><h3>Kertfenntartás</h3><p>Szezonális gondozás, gyomtalanítás, lombseprés, téli felkészítés.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="folyamat" style="background:#fff">
+  <div class="wrap">
+    <h2>Így dolgozunk</h2>
+    <p class="sub">Önnek szinte semmi dolga — mi visszük a nehezét.</p>
+    <div class="steps">
+      <div class="step"><h3>Helyszíni felmérés</h3><p>Megnézzük a terepet, Ön stílust választ.</p></div>
+      <div class="step"><h3>Terv &amp; árajánlat</h3><p>Látványterv + átlátható költségvetés.</p></div>
+      <div class="step"><h3>Kivitelezés</h3><p>Gyors, tiszta munka, folyamatos egyeztetés.</p></div>
+      <div class="step"><h3>Átadás</h3><p>Garanciával, locsolási tanáccsal adjuk át a kertet.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <h2>Új ház, új kert?</h2>
+  <p>Kulcsrakész kertet építünk — hogy költözéskor már zöldben élhessen.</p>
+  <a class="btn gold" href="#kapcsolat">Kérjen ajánlatot most</a>
+</div>
+
+<section id="galeria">
+  <div class="wrap">
+    <h2>Munkáink</h2>
+    <p class="sub">Válogatás az általunk épített kertekből és gyepfelületekből.</p>
+    <div class="gal">
+      <div class="gimg">🏆</div><div class="gimg">✨</div><div class="gimg">🔧</div><div class="gimg">📐</div>
+      <div class="gimg">🧰</div><div class="gimg">🎯</div><div class="gimg">⭐</div><div class="gimg">💡</div>
+      <div class="gimg">📋</div><div class="gimg">🛠️</div><div class="gimg">📦</div><div class="gimg">✔️</div>
+    </div>
+  </div>
+</section>
+
+<section id="arak" style="background:#fff">
+  <div class="wrap">
+    <h2>Áraink</h2>
+    <p class="sub">Irányárak 2026-tól, lakossági kertekre. Pontos árat felmérés után, díjmentesen.</p>
+    <div class="ptables">
+      <div class="ptable">
+        <h3>🌱 Kerttervezés</h3>
+        <table>
+          <tr><td>Látványterv</td><td>25 000 Ft-tól</td></tr>
+          <tr><td>Műszaki terv</td><td>40 000 Ft-tól</td></tr>
+          <tr><td>Konzultáció</td><td>ingyenes</td></tr>
+          <tr><td>Módosítás</td><td>5 000 Ft/alkalom</td></tr>
+        </table>
+      </div>
+      <div class="ptable">
+        <h3>🌿 Gyep &amp; növény</h3>
+        <table>
+          <tr><td>Gyepszőnyeg (m²)</td><td>1 200 Ft/m²-től</td></tr>
+          <tr><td>Fűmagvetés (m²)</td><td>600 Ft/m²-től</td></tr>
+          <tr><td>Fa ültetése</td><td>3 500 Ft-tól</td></tr>
+          <tr><td>Cserje ültetése</td><td>2 000 Ft-tól</td></tr>
+        </table>
+      </div>
+      <div class="ptable">
+        <h3>💧 Öntözés (m²)</h3>
+        <table>
+          <tr><td>Automata rendszer</td><td>900 Ft/m²-től</td></tr>
+          <tr><td>Kézi öntözés</td><td>400 Ft/m²-től</td></tr>
+          <tr><td>Esőérzékelő</td><td>+8 000 Ft</td></tr>
+          <tr><td>Javítás</td><td>hívásra</td></tr>
+        </table>
+      </div>
+      <div class="ptable">
+        <h3>🍂 Fenntartás</h3>
+        <table>
+          <tr><td>Havi gondozás</td><td>15 000 Ft-tól</td></tr>
+          <tr><td>Sövénynyírás</td><td>4 000 Ft-tól</td></tr>
+          <tr><td>Lombseprés</td><td>6 000 Ft-tól</td></tr>
+          <tr><td>Téli felkészítés</td><td>10 000 Ft-tól</td></tr>
+        </table>
+      </div>
+    </div>
+    <p class="pnote">Az árak a munkadíjat tartalmazzák; a növényeket és anyagot Ön vagy mi biztosítjuk (kedvezménnyel). Budapesten és 30 km-es körzetében a felmérés díjmentes.</p>
+  </div>
+</section>
+
+<section id="gyik">
+  <div class="wrap">
+    <h2>Gyakori kérdések</h2>
+    <p class="sub">A leggyakrabban felmerülő kérdések és válaszaink.</p>
+    <div class="faq">
+      <details>
+        <summary>Mely településeken dolgoznak?</summary>
+        <p>Budapest, Pest megye és a főváros 30 km-es körzete.</p>
+      </details>
+      <details>
+        <summary>Mikor a legjobb idő ültetni?</summary>
+        <p>Tavasztól késő őszig; gyepszőnyeg tavasztól őszig, fa ősszel vagy kora tavasszal.</p>
+      </details>
+      <details>
+        <summary>Mennyi idő egy kertépítés?</summary>
+        <p>Kis kert 1–2 hét, nagyobb átalakítás 3–6 hét, az időjárástól függően.</p>
+      </details>
+      <details>
+        <summary>Vállalnak garanciát?</summary>
+        <p>Igen, 1 év a növényekre (megfelelő gondozás mellett) és a rendszerre.</p>
+      </details>
+      <details>
+        <summary>Csinálnak öntözőrendszert is?</summary>
+        <p>Igen, teljes körű tervezés és kivitelezés, garanciával.</p>
+      </details>
+      <details>
+        <summary>Hányan dolgoznak?</summary>
+        <p>Átlagosan 2–3 fő, nagyobb beruházásnál több.</p>
+      </details>
+      <details>
+        <summary>Hogyan zajlik a munka menete?</summary>
+        <p>Felvétel → terv + árajánlat → szerződés + 30% előleg → kivitelezés → átadás, locsolási tanács.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="kapcsolat">
+  <div class="wrap">
+    <h2>Kapcsolat</h2>
+    <p class="sub">Hívjon minket, vagy írja meg, miben segíthetünk — percek alatt elindul az árajánlat.</p>
+    <div class="contact">
+      <div class="cinfo">
+        <p><a class="phone-big" href="#">+36 70 775 56 78</a></p>
+        <p><b>Nyitvatartás:</b><br>H–P: 08:00–17:00<br>Szo: 08:00–13:00</p>
+        <p><b>ZöldKert Kertépítő Bt.</b><br>Adószám: 28402312-1-42<br>Cégjegyzékszám: 01-06-790123</p>
+        <p><b>Működési terület:</b> Budapest és 30 km-es körzet — a legtöbb településen ingyenes kiszállással.</p>
+      </div>
+      <form onsubmit="alert('Ez egy bemutató demó — az űrlap élesítése az átadás után történik.');return false;">
+        <div class="row"><input type="text" placeholder="Név" required></div>
+        <div class="row"><input type="tel" placeholder="Telefonszám" required></div>
+        <div class="row"><input type="email" placeholder="E-mail cím"></div>
+        <div class="row"><textarea rows="4" placeholder="Írja le röviden, miben segíthetünk..."></textarea></div>
+        <label class="consent"><input type="checkbox" required> Elolvastam és elfogadom az <a href="#" onclick="document.getElementById('gdpr').style.display='flex';return false;">Adatkezelési tájékoztatót</a>, és hozzájárulok adataim árajánlat-készítés céljából történő kezeléséhez.</label>
+        <button class="btn gold" type="submit" style="border:0;cursor:pointer;font-size:1rem">Árajánlat kérése</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 ZöldKert Kertépítő Bt. · Minden jog fenntartva ·
+  <a href="#" onclick="document.getElementById('gdpr').style.display='flex';return false;">Adatkezelési tájékoztató</a><br>
+  <em>Ez az oldal egy bemutató (demó) redesign-javaslat, nem a cég hivatalos honlapja.</em>
+</footer>
+
+<div id="gdpr" onclick="if(event.target===this)this.style.display='none'">
+  <div class="box">
+    <h3>Adatkezelési tájékoztató (kivonat)</h3>
+    <p><b>Adatkezelő:</b> ZöldKert Kertépítő Bt. (adószám: 28402312-1-42, cégjegyzékszám: 01-06-790123).</p>
+    <p><b>A kezelt adatok köre:</b> az árajánlatkérő űrlapon megadott név, telefonszám, e-mail cím és az üzenet szövege.</p>
+    <p><b>Az adatkezelés célja:</b> árajánlat készítése és kapcsolatfelvétel az érdeklődővel. <b>Jogalapja:</b> az érintett hozzájárulása (GDPR 6. cikk (1) a) pont).</p>
+    <p><b>Az adatkezelés időtartama:</b> az árajánlat érvényességéig, illetve a hozzájárulás visszavonásáig.</p>
+    <p><b>Adattovábbítás:</b> az adatokat harmadik félnek nem adjuk át, marketing célra nem használjuk.</p>
+    <p><b>Az Ön jogai:</b> tájékoztatást kérhet, kérheti adatai helyesbítését, törlését, valamint panasszal élhet a NAIH-nál (naih.hu).</p>
+    <p><b>Kapcsolat adatkezelési ügyekben:</b> +36 70 775 56 78.</p>
+    <p style="color:#999;font-style:italic">Ez a szöveg a demó részeként készült kivonat — élesítés előtt jogi ellenőrzése szükséges.</p>
+    <button class="btn" onclick="document.getElementById('gdpr').style.display='none'">Bezárás</button>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') document.getElementById('gdpr').style.display = 'none';
+  });
+</script>
+
+</body>
+</html>

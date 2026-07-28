@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pulse Fit Stúdió — Edzés és mozgás</title>
+<style>
+:root{--p:#1f8a70;--d:#0f4d3e;--g:#f4a300;--cr:#f1f8f5;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;color:#222;background:var(--cr);line-height:1.6}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{background:linear-gradient(135deg,var(--d),var(--p));color:#fff;padding:70px 0 90px}
+.nav{display:flex;justify-content:space-between;align-items:center;max-width:1080px;margin:0 auto;padding:0 20px}
+.logo{font-weight:800;font-size:1.4rem}
+.nav a{color:#fff;text-decoration:none;margin-left:18px;font-size:.95rem;opacity:.9}
+.hero{max-width:1080px;margin:30px auto 0;padding:0 20px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.hero h1{font-size:2.6rem;line-height:1.15;margin-bottom:16px}
+.hero h1 em{color:var(--g);font-style:normal}
+.hero p{font-size:1.1rem;opacity:.92;margin-bottom:24px}
+.btn{display:inline-block;background:var(--g);color:var(--d);padding:13px 26px;border-radius:30px;font-weight:700;text-decoration:none;font-size:1rem}
+.btn.ghost{background:transparent;border:2px solid #fff;color:#fff}
+.hero-card{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:16px;padding:22px}
+.hero-card h3{margin-bottom:10px;font-size:1.1rem}
+.hero-card ul{list-style:none;font-size:.95rem}
+.hero-card li{padding:5px 0;border-bottom:1px solid rgba(255,255,255,.15)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1080px;margin:-45px auto 0;padding:0 20px}
+.stat{background:#fff;border-radius:14px;padding:20px;text-align:center;box-shadow:0 6px 20px rgba(0,0,0,.08)}
+.stat b{display:block;font-size:1.7rem;color:var(--p)}
+.stat span{font-size:.85rem;color:#666}
+section{padding:64px 0}
+section h2{font-size:2rem;text-align:center;margin-bottom:8px;color:var(--d)}
+.sub{text-align:center;color:#666;margin-bottom:36px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc{background:#fff;border-radius:14px;padding:24px;box-shadow:0 4px 14px rgba(0,0,0,.06)}
+.svc .ico{font-size:2rem;margin-bottom:10px}
+.svc h3{color:var(--p);margin-bottom:8px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.step{text-align:center}
+.step .n{display:inline-flex;width:42px;height:42px;background:var(--p);color:#fff;border-radius:50%;align-items:center;justify-content:center;font-weight:800;margin-bottom:12px}
+.strip{background:var(--d);color:#fff;text-align:center;border-radius:18px;padding:44px 20px;max-width:1040px;margin:0 auto}
+.strip .btn{margin-top:18px}
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal img{width:100%;height:170px;object-fit:cover;border-radius:12px}
+.faq details{background:#fff;border-radius:10px;padding:14px 18px;margin:8px auto;max-width:760px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.faq summary{font-weight:600;cursor:pointer}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:30px;max-width:880px;margin:0 auto}
+.cinfo p{margin:8px 0}
+.contact form .row{margin-bottom:10px}
+.contact input,.contact textarea{width:100%;padding:11px;border:1px solid #ccc;border-radius:8px;font-family:inherit}
+footer{background:var(--d);color:#fff;text-align:center;padding:30px 20px;font-size:.9rem}
+footer em{opacity:.7;font-size:.82rem}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav"><div class="logo">Pulse Fit Stúdió</div>
+    <nav><a href="#szolgaltatasok">Szolgáltatás</a><a href="#folyamat">Folyamat</a><a href="#kapcsolat">Kapcsolat</a></nav>
+  </div>
+  <div class="hero">
+    <div>
+      <h1>Légy <em>jobb verzió</em> — mozogj velünk</h1>
+      <p>Modern fitneszstúdió személyi edzővel, csoportos órákkal és funkcionális edzéssel. Kezdőknek és profiknak egyaránt.</p>
+      <a class="btn" href="#kapcsolat">Időpont foglalása</a>
+      <a class="btn ghost" href="#szolgaltatasok" style="margin-left:10px">Tudj meg többet</a>
+    </div>
+    <div class="hero-card">
+      <h3>Miért minket?</h3>
+      <ul><li>Személyi edzők</li><li>20+ csoportos óra hetente</li><li>0 Ft az első alkalom</li><li>Tiszta, modern terem</li><li>Rugalmas időbeosztás</li></ul>
+    </div>
+  </div>
+</header>
+<div class="stats"><div class="stat"><b>500 m²</b><span>terem</span></div><div class="stat"><b>20+</b><span>csoportos óra</span></div><div class="stat"><b>1:1</b><span>személyi edző</span></div><div class="stat"><b>0 Ft</b><span>első alkalom</span></div></div>
+
+<section id="szolgaltatasok"><div class="wrap">
+  <h2>Szolgáltatásaink</h2><p class="sub">Találd meg a neked való mozgásformát.</p>
+  <div class="grid"><div class="svc"><div class="ico">🏋️</div><h3>Személyi edzés</h3><p>Céljaidra szabott edzésterv, heti 1–3 alkalom.</p></div><div class="svc"><div class="ico">🧘</div><h3>Jóga, pilates</h3><p>Rugalmasság és nyugalom — kezdőknek is.</p></div><div class="svc"><div class="ico">🔥</div><h3>HIIT, funkcionális</h3><p>Rövid, intenzív edzés a gyors eredményért.</p></div><div class="svc"><div class="ico">🥊</div><h3>Box, kondi</h3><p>Kardió és erő — stressz levezetésre is.</p></div><div class="svc"><div class="ico">📱</div><h3>Online edzés</h3><p>Otthonról is: élő vagy felvett órák.</p></div><div class="svc"><div class="ico">📊</div><h3>Állapotfelmérés</h3><p>Induló mérés, hogy lásd a haladást.</p></div></div>
+</div></section>
+
+<section id="folyamat" style="background:#fff"><div class="wrap">
+  <h2>Így dolgozunk</h2><p class="sub">Így kezdesz el nálunk.</p>
+  <div class="steps"><div class="step"><span class="n">1</span><h3>Regisztráció</h3><p>Írj vagy hív — az első alkalom ingyenes.</p></div><div class="step"><span class="n">2</span><h3>Felmérés</h3><p>Megnézzük, hol tartasz, és mit akarsz.</p></div><div class="step"><span class="n">3</span><h3>Edzésterv</h3><p>Személyre szabott terv készül.</p></div><div class="step"><span class="n">4</span><h3>Edzés</h3><p>Jössz, mozogsz, fejlődsz.</p></div></div>
+</div></section>
+
+<div class="strip">
+  <h2 style="color:#fff">Kérjen ajánlatot most</h2>
+  <p>Az első edzés nálad ingyenes — jelentkezz most!</p>
+  <a class="btn gold" href="#kapcsolat">Kapcsolatfelvétel</a>
+</div>
+
+<section id="galeria"><div class="wrap">
+  <h2>Munkáink</h2><p class="sub">Válogatás korábbi munkáinkból.</p>
+  <div class="gal"><img src="https://picsum.photos/seed/fit1/600/400" alt="Terem" loading="lazy"><img src="https://picsum.photos/seed/fit2/600/400" alt="Személyi" loading="lazy"><img src="https://picsum.photos/seed/fit3/600/400" alt="Jóga" loading="lazy"><img src="https://picsum.photos/seed/fit4/600/400" alt="HIIT" loading="lazy"><img src="https://picsum.photos/seed/fit5/600/400" alt="Box" loading="lazy"><img src="https://picsum.photos/seed/fit6/600/400" alt="Kondi" loading="lazy"><img src="https://picsum.photos/seed/fit7/600/400" alt="Csoport" loading="lazy"><img src="https://picsum.photos/seed/fit8/600/400" alt="Eredmény" loading="lazy"></div>
+</div></section>
+
+<section id="gyik" style="background:#fff"><div class="wrap">
+  <h2>Gyakori kérdések</h2><p class="sub">A leggyakrabban felmerülő kérdések és válaszaink.</p>
+  <div class="faq"><details><summary>Mennyibe kerül?</summary><p>Havi bérlet már 12 900 Ft-tól, személyi edzés külön.</p></details><details><summary>Leköteleződök?</summary><p>Nem — első alkalom ingyenes, utána döntesz.</p></details><details><summary>Jó kezdőknek?</summary><p>Igen, a legtöbb óra kezdőbarát.</p></details><details><summary>Van zuhanyzó?</summary><p>Igen, öltözővel és zuhanyzóval is rendelkezünk.</p></details></div>
+</div></section>
+
+<section id="kapcsolat"><div class="wrap">
+  <h2>Kapcsolat</h2><p class="sub">Várunk az edzőteremben!</p>
+  <div class="contact">
+    <div class="cinfo">
+      <p><b>Cím:</b><br>Budapest, XIII. kerület</p>
+      <p><b>Nyitvatartás:</b><br>H–P: 6–22, Szo–V: 8–20</p>
+      <p><b>E-mail:</b> <a href="mailto:info@pulsefit.hu">info@pulsefit.hu</a></p>
+      <p><b>Pulse Fit Stúdió Kft.</b></p>
+    </div>
+    <form onsubmit="alert('Bemutató demó — az űrlap élesítése átadáskor történik.');return false;">
+      <div class="row"><input type="text" placeholder="Név" required></div>
+      <div class="row"><input type="tel" placeholder="Telefonszám" required></div>
+      <div class="row"><input type="email" placeholder="E-mail cím"></div>
+      <div class="row"><textarea rows="4" placeholder="Üzenet..."></textarea></div>
+      <button class="btn" type="submit" style="border:0;cursor:pointer">Küldés</button>
+    </form>
+  </div>
+</div></section>
+
+<footer>
+  © 2021–2026 Pulse Fit Stúdió Kft. · Minden jog fenntartva<br>
+  <em>Ez egy bemutató (demó) redesign-javaslat, nem a cég hivatalos honlapja.</em>
+</footer>
+</body>
+</html>

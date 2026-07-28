@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Webgyár — Demó oldalak (localhost)</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Segoe UI',system-ui,sans-serif;background:#f4f1ec;color:#2b2118;line-height:1.6;padding:40px 20px}
+  .wrap{max-width:1100px;margin:0 auto}
+  h1{color:#5b3a29;font-size:2rem;margin-bottom:8px}
+  .sub{color:#7a6a5c;margin-bottom:30px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+  .card{background:#fff;border-radius:14px;padding:22px;box-shadow:0 4px 18px rgba(60,40,20,.07);transition:.2s;text-decoration:none;color:inherit;display:block}
+  .card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(60,40,20,.13)}
+  .card .ic{font-size:1.8rem;margin-bottom:8px}
+  .card h3{color:#5b3a29;font-size:1.1rem;margin-bottom:4px}
+  .card .url{margin-top:10px;font-size:.8rem;color:#c9973f;word-break:break-all}
+  .tag{display:inline-block;background:#faf6f0;border:1px solid #e8ddd0;border-radius:999px;padding:2px 10px;font-size:.72rem;color:#7a6a5c;margin-bottom:8px}
+  .new{background:#eafaf0;border-color:#bfe6c9;color:#2f7d4f}
+  footer{text-align:center;color:#7a6a5c;font-size:.85rem;margin-top:40px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🌐 Webgyár — Demó oldalak</h1>
+  <p class="sub">Minden redesign-javaslat egy helyen. Kattints a kártyára a demó megnyitásához (localhost szerveren fut).</p>
+  <div class="grid">
+    <a class="card" href="gazfutes/index.html"><span class="tag new">ÚJ</span><div class="ic">🔥</div><h3>GázFűtés — Gáz/fűtésszerelő</h3><div class="url">localhost:8765/gazfutes/</div></a>
+    <a class="card" href="autoszerelo/index.html"><span class="tag new">ÚJ</span><div class="ic">🚗</div><h3>AutoPatka — Autószerelő</h3><div class="url">localhost:8765/autoszerelo/</div></a>
+    <a class="card" href="gepesz/index.html"><span class="tag new">ÚJ</span><div class="ic">🔧</div><h3>PéterSegít — Házkörüli gépész</h3><div class="url">localhost:8765/gepesz/</div></a>
+    <a class="card" href="vendeghaz/index.html"><span class="tag new">ÚJ</span><div class="ic">🏡</div><h3>Romantikus Vendégház</h3><div class="url">localhost:8765/vendeghaz/</div></a>
+    <a class="card" href="konyvelo/index.html"><span class="tag new">ÚJ</span><div class="ic">📊</div><h3>AnkaKönyv — Könyvelő</h3><div class="url">localhost:8765/konyvelo/</div></a>
+    <a class="card" href="festo/index.html"><span class="tag ">KORÁBBI</span><div class="ic">🪣</div><h3>FestMester — Festő</h3><div class="url">localhost:8765/festo/</div></a>
+    <a class="card" href="edzo/index.html"><span class="tag ">KORÁBBI</span><div class="ic">💪</div><h3>FitEddző</h3><div class="url">localhost:8765/edzo/</div></a>
+    <a class="card" href="fodrasz/index.html"><span class="tag ">KORÁBBI</span><div class="ic">💇</div><h3>HajStúdió — Fodrász</h3><div class="url">localhost:8765/fodrasz/</div></a>
+    <a class="card" href="kovacs/index.html"><span class="tag ">KORÁBBI</span><div class="ic">🧱</div><h3>KőMester — Kőműves</h3><div class="url">localhost:8765/kovacs/</div></a>
+    <a class="card" href="foto/index.html"><span class="tag ">KORÁBBI</span><div class="ic">📸</div><h3>FényKépész</h3><div class="url">localhost:8765/foto/</div></a>
+    <a class="card" href="villany/index.html"><span class="tag ">KORÁBBI</span><div class="ic">💡</div><h3>Villányszerelő</h3><div class="url">localhost:8765/villany/</div></a>
+    <a class="card" href="kozmetika/index.html"><span class="tag ">KORÁBBI</span><div class="ic">💆</div><h3>SzépKozmetika</h3><div class="url">localhost:8765/kozmetika/</div></a>
+    <a class="card" href="kertesz/index.html"><span class="tag ">KORÁBBI</span><div class="ic">🌱</div><h3>ZöldKert — Kertépítő</h3><div class="url">localhost:8765/kertesz/</div></a>
+    <a class="card" href="vizszerelo/index.html"><span class="tag ">KORÁBBI</span><div class="ic">🚰</div><h3>VízSzerelő</h3><div class="url">localhost:8765/vizszerelo/</div></a>
+    <a class="card" href="asztalos/index.html"><span class="tag ">KORÁBBI</span><div class="ic">🪚</div><h3>FaMester — Asztalos</h3><div class="url">localhost:8765/asztalos/</div></a>
+    <a class="card" href="pranczek/index.html"><span class="tag ">RÉGI</span><div class="ic">🔨</div><h3>Pranczek (régi demó)</h3><div class="url">localhost:8765/pranczek/</div></a>
+    <a class="card" href="car-go/index.html"><span class="tag ">RÉGI</span><div class="ic">🚗</div><h3>Car-Go (régi demó)</h3><div class="url">localhost:8765/car-go/</div></a>
+    <a class="card" href="zolnikredony/index.html"><span class="tag ">RÉGI</span><div class="ic">🪟</div><h3>Zolnik Redőny (régi demó)</h3><div class="url">localhost:8765/zolnikredony/</div></a>
+    <a class="card" href="madicipesz/index.html"><span class="tag ">RÉGI</span><div class="ic">👞</div><h3>Madicipesz (régi demó)</h3><div class="url">localhost:8765/madicipesz/</div></a>
+    <a class="card" href="karpitos-org/index.html"><span class="tag ">RÉGI</span><div class="ic">🛋️</div><h3>Kárpit Szerviz (eredeti)</h3><div class="url">localhost:8765/karpitos-org/</div></a>
+    <a class="card" href="piliskert/index.html"><span class="tag ">RÉGI</span><div class="ic">🌳</div><h3>Piliskert (régi demó)</h3><div class="url">localhost:8765/piliskert/</div></a>
+  </div>
+  <footer>Összesen 21 demó · Webgyár · localhost preview szerver (8765)</footer>
+</div>
+</body>
+</html>
