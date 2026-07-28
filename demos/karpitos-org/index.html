@@ -1,386 +1,46 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="hu">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kárpit Szerviz Kft. — Bútorkárpitozás és felújítás, országosan</title>
-<meta name="description" content="Több mint 50 év tapasztalat bútorkárpitozásban. Ingyenes felmérés, saját szállítás, garancia. Kérjen árajánlatot percek alatt!">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kárpit Szerviz — Bútorkárpitozás és felújítás</title>
+<meta name="description" content="Bútorkárpitozás, antik bútor felújítás, ágyak és közületi bútorok kárpitozása.">
 <style>
-  :root{
-    --brown:#5b3a29; --brown-d:#3e2719; --cream:#faf6f0; --gold:#c9973f;
-    --ink:#2b2118; --muted:#7a6a5c; --white:#fff; --radius:14px;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--cream);line-height:1.6}
-  img{max-width:100%}
-  .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
-
-  /* NAV */
-  nav{position:sticky;top:0;background:rgba(250,246,240,.95);backdrop-filter:blur(8px);border-bottom:1px solid #e8ddd0;z-index:10}
-  .nav-in{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:1100px;margin:0 auto}
-  .logo{font-weight:800;font-size:1.25rem;color:var(--brown);text-decoration:none}
-  .logo span{color:var(--gold)}
-  .nav-links{display:flex;gap:26px;align-items:center}
-  .nav-links a{color:var(--ink);text-decoration:none;font-size:.95rem}
-  .nav-links a:hover{color:var(--brown)}
-  .btn{display:inline-block;background:var(--brown);color:#fff!important;padding:10px 22px;border-radius:999px;text-decoration:none;font-weight:600;transition:.2s}
-  .btn:hover{background:var(--brown-d);transform:translateY(-1px)}
-  .btn.gold{background:var(--gold)}
-  .btn.gold:hover{background:#b3842f}
-  .burger{display:none;background:none;border:0;font-size:1.6rem;cursor:pointer;color:var(--brown)}
-
-  /* HERO */
-  header{background:linear-gradient(135deg,var(--brown-d) 0%,var(--brown) 70%,#7a4f35 100%);color:#fff;padding:90px 0 70px}
-  .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
-  .hero h1{font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.15;margin-bottom:18px}
-  .hero h1 em{color:var(--gold);font-style:normal}
-  .hero p{font-size:1.15rem;opacity:.92;margin-bottom:28px;max-width:32rem}
-  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
-  .hero-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:var(--radius);padding:28px}
-  .hero-card h3{color:var(--gold);margin-bottom:14px}
-  .hero-card li{list-style:none;padding:7px 0 7px 30px;position:relative}
-  .hero-card li::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:700}
-
-  /* STATS */
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:-38px auto 0;position:relative}
-  .stat{background:#fff;border-radius:var(--radius);padding:22px;text-align:center;box-shadow:0 10px 30px rgba(60,40,20,.12)}
-  .stat b{display:block;font-size:1.7rem;color:var(--brown)}
-  .stat span{color:var(--muted);font-size:.9rem}
-
-  section{padding:70px 0}
-  h2{font-size:2rem;color:var(--brown-d);margin-bottom:10px;text-align:center}
-  .sub{text-align:center;color:var(--muted);max-width:44rem;margin:0 auto 44px}
-
-  /* SERVICES */
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .card{background:#fff;border-radius:var(--radius);padding:28px;box-shadow:0 4px 18px rgba(60,40,20,.07);transition:.2s}
-  .card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(60,40,20,.13)}
-  .card .ic{font-size:2rem;margin-bottom:12px}
-  .card h3{color:var(--brown);margin-bottom:8px;font-size:1.1rem}
-  .card p{color:var(--muted);font-size:.95rem}
-
-  /* STEPS */
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;counter-reset:s}
-  .step{text-align:center;padding:20px}
-  .step::before{counter-increment:s;content:counter(s);display:inline-flex;width:52px;height:52px;border-radius:50%;background:var(--gold);color:#fff;font-weight:800;font-size:1.3rem;align-items:center;justify-content:center;margin-bottom:14px}
-  .step h3{font-size:1.05rem;color:var(--brown-d);margin-bottom:6px}
-  .step p{color:var(--muted);font-size:.92rem}
-
-  /* CTA STRIP */
-  .strip{background:var(--brown);color:#fff;text-align:center;padding:56px 20px;border-radius:var(--radius);margin:0 20px}
-  .strip h2{color:#fff}
-  .strip p{opacity:.9;margin-bottom:24px}
-
-  /* CONTACT */
-  .contact{display:grid;grid-template-columns:1fr 1fr;gap:36px}
-  .cinfo p{margin-bottom:12px}
-  .cinfo b{color:var(--brown)}
-  .phone-big{font-size:1.6rem;font-weight:800;color:var(--brown);text-decoration:none}
-  form .row{margin-bottom:14px}
-  input,textarea{width:100%;padding:12px 14px;border:1px solid #ddd0c0;border-radius:10px;font:inherit;background:#fff}
-  input:focus,textarea:focus{outline:2px solid var(--gold)}
-  footer{background:var(--brown-d);color:#cbb9a8;text-align:center;padding:28px 20px;font-size:.9rem}
-  footer a{color:var(--gold)}
-
-  /* GALLERY */
-  .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-  .gal img{width:100%;height:190px;object-fit:cover;border-radius:10px;cursor:pointer;transition:.2s;box-shadow:0 3px 12px rgba(60,40,20,.12)}
-  .gal img:hover{transform:scale(1.03)}
-  #lightbox{display:none;position:fixed;inset:0;background:rgba(20,12,6,.92);z-index:50;align-items:center;justify-content:center;cursor:zoom-out}
-  #lightbox img{max-width:92vw;max-height:88vh;border-radius:8px}
-
-  /* PRICES */
-  .ptables{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-  .ptable{background:#fff;border-radius:var(--radius);padding:24px;box-shadow:0 4px 18px rgba(60,40,20,.07)}
-  .ptable h3{color:var(--brown);margin-bottom:12px}
-  .ptable table{width:100%;border-collapse:collapse;font-size:.93rem}
-  .ptable td{padding:8px 6px;border-bottom:1px solid #f0e7da}
-  .ptable td:last-child{text-align:right;white-space:nowrap;font-weight:600;color:var(--brown-d)}
-  .pnote{color:var(--muted);font-size:.85rem;margin-top:18px;text-align:center}
-
-  /* FAQ */
-  .faq{max-width:46rem;margin:0 auto}
-  .faq details{background:#fff;border-radius:10px;margin-bottom:10px;box-shadow:0 3px 12px rgba(60,40,20,.06);overflow:hidden}
-  .faq summary{padding:16px 20px;font-weight:600;cursor:pointer;color:var(--brown-d);list-style:none;position:relative;padding-right:44px}
-  .faq summary::after{content:"+";position:absolute;right:18px;top:12px;font-size:1.4rem;color:var(--gold)}
-  .faq details[open] summary::after{content:"–"}
-  .faq details p, .faq details ol{padding:0 20px 16px;color:var(--muted)}
-  .faq details ol{padding-left:40px}
-
-  /* GDPR modal */
-  #gdpr{display:none;position:fixed;inset:0;background:rgba(20,12,6,.7);z-index:60;align-items:center;justify-content:center;padding:20px}
-  #gdpr .box{background:#fff;max-width:42rem;max-height:80vh;overflow:auto;border-radius:var(--radius);padding:32px}
-  #gdpr h3{color:var(--brown);margin-bottom:12px}
-  #gdpr p{font-size:.92rem;color:#4a3f34;margin-bottom:10px}
-  .consent{display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--muted);margin-bottom:14px}
-  .consent input{width:auto;margin-top:3px}
-
-  @media(max-width:820px){.gal{grid-template-columns:1fr 1fr}.ptables{grid-template-columns:1fr}}
-
-  @media(max-width:820px){
-    .hero,.contact{grid-template-columns:1fr}
-    .grid{grid-template-columns:1fr 1fr}
-    .stats,.steps{grid-template-columns:1fr 1fr}
-    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);flex-direction:column;padding:18px;border-bottom:1px solid #e8ddd0}
-    .nav-links.open{display:flex}
-    .burger{display:block}
-  }
-  @media(max-width:520px){.grid{grid-template-columns:1fr}}
+:root{--wine:#772d3b;--wine2:#4a1822;--gold:#c49a5a;--ink:#201915;--cream:#f7f2ea;--paper:#fffdf9;--muted:#746b64}
+*{box-sizing:border-box}html{scroll-behavior:smooth;overflow-x:hidden}body{margin:0;color:var(--ink);background:var(--paper);font-family:Arial,'Segoe UI',sans-serif;line-height:1.65;overflow-x:hidden}img{display:block;width:100%}a{color:inherit}.wrap{width:min(1240px,calc(100% - 40px));margin:auto}
+.announcement{background:var(--wine2);color:#fff;text-align:center;padding:8px 16px;font-size:.8rem;letter-spacing:.06em}.header{background:rgba(255,253,249,.97);position:sticky;top:0;z-index:30;border-bottom:1px solid #e6ded4}.nav{height:78px;display:flex;align-items:center;gap:38px}.logo{font-family:Georgia,serif;text-decoration:none;font-size:1.55rem;font-weight:bold;letter-spacing:-.02em}.logo small{display:block;font:700 .55rem Arial,sans-serif;letter-spacing:.18em;color:var(--wine);text-transform:uppercase}.links{display:flex;align-items:center;gap:27px;margin-left:auto}.links a{text-decoration:none;font-size:.9rem;font-weight:700}.nav-cta{background:var(--wine);color:#fff!important;padding:12px 19px}.hamb{display:none;margin-left:auto;border:0;background:none;font-size:1.6rem}
+.hero{min-height:670px;height:82vh;max-height:850px;background:url('assets/hero-clean.png') center/cover no-repeat;display:flex;align-items:center;position:relative;color:#fff}.hero:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(22,12,9,.77) 0%,rgba(22,12,9,.5) 37%,rgba(22,12,9,.03) 68%)}.hero-copy{position:relative;z-index:2;max-width:670px}.eyebrow{font-size:.74rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:#e2bd83}.hero h1{font:700 clamp(3rem,6.8vw,6.6rem)/.94 Georgia,serif;letter-spacing:-.05em;margin:.18em 0}.hero p{font-size:clamp(1rem,1.7vw,1.25rem);max-width:580px;color:rgba(255,255,255,.86)}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-block;text-decoration:none;font-weight:800;padding:14px 23px;background:var(--wine);color:#fff;border:1px solid var(--wine)}.btn.light{background:transparent;border-color:rgba(255,255,255,.65)}
+.introbar{background:var(--wine);color:#fff}.introbar .wrap{display:grid;grid-template-columns:repeat(4,1fr);min-height:88px;align-items:center;text-align:center}.introbar div{padding:12px;border-right:1px solid rgba(255,255,255,.2);font-weight:800}.introbar div:last-child{border:0}.introbar b{color:#f1d4a9;margin-right:7px}
+section{padding:90px 0}.head{text-align:center;max-width:760px;margin:0 auto 45px}.kicker{color:var(--wine);font-weight:900;text-transform:uppercase;letter-spacing:.16em;font-size:.72rem}.head h2,.feature h2,.why h2,.quote h2{font:700 clamp(2.25rem,4.5vw,4.5rem)/1.02 Georgia,serif;letter-spacing:-.04em;margin:.2em 0}.head p{color:var(--muted)}
+.feature{padding:0;background:var(--cream)}.feature-grid{display:grid;grid-template-columns:1fr 1fr;min-height:600px}.feature-image{background:url('assets/antique.png') center/cover no-repeat;min-height:500px}.feature-copy{padding:80px clamp(35px,7vw,110px);display:flex;flex-direction:column;justify-content:center}.feature-copy p{color:var(--muted)}.feature-list{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0 28px}.feature-list span{font-weight:800}.feature-list span:before{content:'✓';color:var(--wine);margin-right:8px}
+.services{background:#fff}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{min-height:520px;position:relative;overflow:hidden;color:#fff;display:flex;align-items:flex-end;text-decoration:none}.card img{position:absolute;inset:0;height:100%;object-fit:cover;transition:.5s}.card:after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(24,12,10,.88),rgba(24,12,10,0) 70%)}.card-content{position:relative;z-index:2;padding:27px}.card h3{font:700 1.7rem Georgia,serif;margin:0 0 7px}.card p{font-size:.9rem;color:rgba(255,255,255,.82);margin:0}.card:hover img{transform:scale(1.045)}
+.why{background:var(--paper)}.why-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:75px;align-items:start}.why-copy>p{font-size:1.08rem;color:var(--muted)}.checks{display:grid;gap:13px}.check{padding:19px 21px;background:var(--cream);border-left:4px solid var(--gold);font-weight:800}.check b{display:block;font:700 1.15rem Georgia,serif;margin-bottom:3px}.check span{font-weight:400;color:var(--muted);font-size:.9rem}
+.extras{background:var(--wine2);color:#fff}.extras .head p{color:rgba(255,255,255,.67)}.extras .kicker{color:#e5c18b}.extra-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.extra{padding:40px;min-height:280px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.055)}.extra .ico{font-size:2.7rem}.extra h3{font:700 1.65rem Georgia,serif;margin:13px 0}.extra p{color:rgba(255,255,255,.7)}
+.portfolio{background:#e9e2d8}.ba{position:relative;max-width:1100px;margin:auto;box-shadow:0 28px 70px rgba(35,20,15,.18)}.ba img{aspect-ratio:16/9;object-fit:cover}.labels{position:absolute;inset:0;display:flex;justify-content:space-between;align-items:flex-start;padding:20px}.labels span{background:rgba(24,12,10,.82);color:#fff;padding:8px 14px;font-weight:900;letter-spacing:.1em;font-size:.72rem}.ba-caption{background:#fff;padding:22px 27px;display:flex;justify-content:space-between;gap:20px}.ba-caption b{font:700 1.2rem Georgia,serif}.ba-caption span{color:var(--muted)}
+.quote{background:var(--cream)}.quote-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:65px;align-items:start}.quote-copy{position:sticky;top:130px}.quote-copy p{color:var(--muted)}.quote form{background:#fff;padding:34px;box-shadow:0 15px 55px rgba(50,30,20,.1);display:grid;grid-template-columns:1fr 1fr;gap:17px}.quote label{font-size:.78rem;font-weight:900;text-transform:uppercase;letter-spacing:.05em}.quote input,.quote select,.quote textarea{width:100%;margin-top:7px;padding:14px;border:1px solid #d5ccc2;background:#fff;font:inherit}.quote textarea{min-height:130px;resize:vertical}.full{grid-column:1/-1}.submit{border:0;background:var(--wine);color:#fff;padding:16px;font-weight:900;font-size:1rem;cursor:pointer}.form-note{font-size:.76rem;color:var(--muted);text-transform:none!important;letter-spacing:0!important}
+footer{background:#171210;color:#ddd1c5;padding:60px 0 25px}.footer-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:45px}.footer-grid h3{font:700 1.45rem Georgia,serif;color:#fff}.footer-grid h4{color:#fff}.footer-grid a{color:#ddd1c5}.fine{border-top:1px solid #3b302b;margin-top:40px;padding-top:20px;font-size:.75rem;color:#8f8279}
+@media(max-width:900px){.nav{position:relative}.links{display:none}.links.open{display:flex;position:absolute;top:78px;left:0;right:0;z-index:40;flex-direction:column;align-items:stretch;gap:0;background:#fff;padding:12px 20px 20px;box-shadow:0 18px 30px rgba(35,20,15,.14)}.links.open a{padding:12px;border-bottom:1px solid #eee5dc}.links.open .nav-cta{text-align:center;margin-top:9px}.hamb{display:block}.hero{height:720px;background-position:58% center}.hero:after{background:linear-gradient(90deg,rgba(22,12,9,.84),rgba(22,12,9,.32))}.introbar .wrap{grid-template-columns:1fr 1fr}.introbar div:nth-child(2){border-right:0}.feature-grid,.why-grid,.quote-grid{grid-template-columns:1fr}.feature-copy{padding:65px 30px}.cards{grid-template-columns:1fr 1fr}.card{min-height:450px}.quote-copy{position:static}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.wrap{width:calc(100% - 28px)}.announcement{font-size:.58rem;line-height:1.35;padding:7px 10px;white-space:normal}.nav{height:68px;position:relative}.logo{font-size:1.35rem}.hamb{display:block;position:absolute;right:0;top:17px;color:var(--ink)}.hero{height:680px;min-height:0;background-position:61% center}.hero-copy{max-width:100%}.hero h1{font-size:2.85rem;max-width:100%}.hero p{font-size:.91rem;max-width:100%;overflow-wrap:anywhere}.actions{display:grid;grid-template-columns:1fr;max-width:260px}.btn{text-align:center;padding:13px 15px}.introbar .wrap{grid-template-columns:1fr}.introbar div{font-size:.75rem;border-right:0;border-bottom:1px solid rgba(255,255,255,.2)}.introbar div:last-child{border-bottom:0}.feature-grid{display:block}.feature-image{min-height:380px}.feature-list{grid-template-columns:1fr}.cards,.extra-grid{grid-template-columns:1fr}.card{min-height:480px}.why-grid{gap:35px}.ba-caption{display:block}.quote form{grid-template-columns:1fr;padding:23px}.full{grid-column:auto}.footer-grid{grid-template-columns:1fr}section{padding:68px 0}}
 </style>
 </head>
 <body>
-
-<nav>
-  <div class="nav-in">
-    <a class="logo" href="#">Kárpit<span>Szerviz</span></a>
-    <button class="burger" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
-    <div class="nav-links">
-      <a href="#szolgaltatasok">Szolgáltatások</a>
-      <a href="#galeria">Galéria</a>
-      <a href="#arak">Árak</a>
-      <a href="#gyik">GYIK</a>
-      <a href="#kapcsolat">Kapcsolat</a>
-      <a class="btn gold" href="#kapcsolat">Ingyenes árajánlat</a>
-    </div>
-  </div>
-</nav>
-
-<header>
-  <div class="wrap hero">
-    <div>
-      <h1>Régi bútora <em>újjászületik</em> — 50+ év kárpitos tapasztalattal</h1>
-      <p>Ülő- és fekvőbútorok, antik és modern darabok teljes körű kárpitozása, javítása, felújítása. Ingyenes felmérés, saját teherautós szállítás, garancia minden munkára.</p>
-      <div class="hero-cta">
-        <a class="btn gold" href="#kapcsolat">Kérek árajánlatot</a>
-        <a class="btn" href="#">📞 +36 70 771 38 88</a>
-      </div>
-    </div>
-    <div class="hero-card">
-      <h3>Miért minket válasszon?</h3>
-      <ul>
-        <li>Díjtalan helyszíni felmérés</li>
-        <li>Ingyenes oda-vissza szállítás*</li>
-        <li>2000+ szövet-, bőr- és műbőrminta</li>
-        <li>Garancia minden munkára és anyagra</li>
-        <li>Rövid, megbízható határidők</li>
-      </ul>
-    </div>
-  </div>
-</header>
-
-<div class="wrap stats">
-  <div class="stat"><b>50+ év</b><span>szakmai tapasztalat</span></div>
-  <div class="stat"><b>2000+</b><span>kárpit minta</span></div>
-  <div class="stat"><b>Országos</b><span>lefedettség</span></div>
-  <div class="stat"><b>100%</b><span>garancia</span></div>
-</div>
-
-<section id="szolgaltatasok">
-  <div class="wrap">
-    <h2>Szolgáltatásaink</h2>
-    <p class="sub">A klasszikus áthúzástól az antik restaurálásig — bármilyen kárpitozott bútort új életre keltünk.</p>
-    <div class="grid">
-      <div class="card"><div class="ic">🛋️</div><h3>Ülőgarnitúra kárpitozás</h3><p>Kanapék, fotelek, székek áthúzása, rugócsere, szivacspótlás, szövetcsere.</p></div>
-      <div class="card"><div class="ic">🪑</div><h3>Antik & stílbútor felújítás</h3><p>Mélytűzött antik darabok javítása, politúrozás, aranyozás, fafaragás, restaurálás.</p></div>
-      <div class="card"><div class="ic">🛏️</div><h3>Franciaágy, heverő, matrac</h3><p>Kiült részek javítása, egyedi méretű matracok, mélytűzött fejtámlák készítése.</p></div>
-      <div class="card"><div class="ic">🏨</div><h3>Szállodák, közületek</h3><p>Panziók, éttermek, iskolák, intézmények bútorai — nagyobb megrendelésre kedvezmény.</p></div>
-      <div class="card"><div class="ic">🍺</div><h3>Vendéglátóhelyek</h3><p>Bokszok, bárszékek, biliárd- és pókerasztalok áthúzása, teljes felújítása.</p></div>
-      <div class="card"><div class="ic">🏍️</div><h3>Egyedi és speciális munkák</h3><p>Motorülések, fodrász- és fogorvosi székek, ajtókárpitozás, raktér-kárpitozás.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="folyamat" style="background:#fff">
-  <div class="wrap">
-    <h2>Így dolgozunk</h2>
-    <p class="sub">Önnek szinte semmi dolga — mi visszük és hozzuk a bútort.</p>
-    <div class="steps">
-      <div class="step"><h3>Árajánlat</h3><p>Küldjön fotót bútoráról, és gyors, pontos ajánlatot adunk.</p></div>
-      <div class="step"><h3>Ingyenes felmérés</h3><p>Egyeztetett időpontban felmérjük a bútort, Ön anyagot választ.</p></div>
-      <div class="step"><h3>Kárpitozás</h3><p>Saját teherautónkkal elszállítjuk, műhelyünkben precízen felújítjuk.</p></div>
-      <div class="step"><h3>Visszaszállítás</h3><p>Újként pompázó bútorát oda visszük, ahova kéri. Garanciával.</p></div>
-    </div>
-  </div>
-</section>
-
-<div class="strip">
-  <h2>Költözik? Felújít?</h2>
-  <p>Bútorát hosszabb ideig is tároljuk telephelyünkön, és akkor szállítjuk vissza, amikor Önnek megfelel.</p>
-  <a class="btn gold" href="#kapcsolat">Kérjen ajánlatot most</a>
-</div>
-
-<section id="galeria">
-  <div class="wrap">
-    <h2>Munkáink</h2>
-    <p class="sub">Válogatás az általunk felújított bútorokból — kattintson a képekre a nagyításhoz.</p>
-    <div class="gal">
-      <img src="img/butor-1.jpg" alt="Felújított kárpitos bútor" loading="lazy">
-      <img src="img/butor-5.jpg" alt="Újrakárpitozott ülőgarnitúra" loading="lazy">
-      <img src="img/butor-9.jpg" alt="Kárpitozott fotel felújítás" loading="lazy">
-      <img src="img/butor-14.jpg" alt="Antik bútor restaurálás" loading="lazy">
-      <img src="img/butor-20.jpg" alt="Kanapé áthúzás" loading="lazy">
-      <img src="img/butor-26.jpg" alt="Stílbútor kárpitozás" loading="lazy">
-      <img src="img/butor-31.jpg" alt="Ülőgarnitúra új kárpittal" loading="lazy">
-      <img src="img/butor-37.jpg" alt="Felújított heverő" loading="lazy">
-      <img src="img/butor-43.jpg" alt="Székek újrakárpitozása" loading="lazy">
-      <img src="img/butor-50.jpg" alt="Franciaágy kárpitozás" loading="lazy">
-      <img src="img/butor-57.jpg" alt="Bőrbútor javítás" loading="lazy">
-      <img src="img/butor-63.jpg" alt="Egyedi kárpitos munka" loading="lazy">
-    </div>
-  </div>
-</section>
-<div id="lightbox" onclick="this.style.display='none'"><img id="lightbox-img" src="" alt="Nagyított kép"></div>
-
-<section id="arak" style="background:#fff">
-  <div class="wrap">
-    <h2>Áraink</h2>
-    <p class="sub">Irányárak 2026. január 1-től, modern (20 évnél fiatalabb) bútorokra. A pontos árat fotó alapján, díjmentesen adjuk meg.</p>
-    <div class="ptables">
-      <div class="ptable">
-        <h3>🛋️ Ülőgarnitúrák (3+1+1-től)</h3>
-        <table>
-          <tr><td>Szivacsos áthúzás</td><td>140 000 Ft-tól</td></tr>
-          <tr><td>Rugós áthúzás</td><td>143 000 Ft-tól</td></tr>
-          <tr><td>Áthúzás szivacscserével</td><td>153 000 Ft-tól</td></tr>
-          <tr><td>Áthúzás rugócserével</td><td>158 000 Ft-tól</td></tr>
-        </table>
-      </div>
-      <div class="ptable">
-        <h3>🛏️ Franciaágyak (140–180 cm)</h3>
-        <table>
-          <tr><td>Szivacsos áthúzás</td><td>14 000 Ft-tól</td></tr>
-          <tr><td>Rugós áthúzás</td><td>16 000 Ft-tól</td></tr>
-          <tr><td>Áthúzás szivacscserével</td><td>20 000 Ft-tól</td></tr>
-          <tr><td>Áthúzás rugócserével</td><td>30 000 Ft-tól</td></tr>
-        </table>
-      </div>
-      <div class="ptable">
-        <h3>🪑 Fotelek, székek</h3>
-        <table>
-          <tr><td>Fotel áthúzás</td><td>14 000 Ft-tól</td></tr>
-          <tr><td>Fotel áthúzás szivacs-/rugócserével</td><td>19 000 Ft-tól</td></tr>
-          <tr><td>Szék ülés áthúzása szivacscserével</td><td>3 000 Ft-tól</td></tr>
-          <tr><td>Irodai gurulós szék áthúzása</td><td>5 000 Ft-tól</td></tr>
-        </table>
-      </div>
-      <div class="ptable">
-        <h3>🛌 Kanapék, heverők</h3>
-        <table>
-          <tr><td>2-es kanapé áthúzás</td><td>22 000 Ft-tól</td></tr>
-          <tr><td>3-as kanapé áthúzás</td><td>32 000 Ft-tól</td></tr>
-          <tr><td>Heverő (szivacsos)</td><td>15 000 Ft-tól</td></tr>
-          <tr><td>Heverő (rugós)</td><td>17 000 Ft-tól</td></tr>
-        </table>
-      </div>
-    </div>
-    <p class="pnote">Az árak a munkadíjra vonatkoznak, a kárpitanyag árát és az adókat nem tartalmazzák. Antik és stílbútor árajánlat fénykép alapján. Működési területünkön a szállítás díjmentes. Karácsonyi akciónkban minimum 10% kedvezmény a munkadíjból!</p>
-  </div>
-</section>
-
-<section id="gyik">
-  <div class="wrap">
-    <h2>Gyakori kérdések</h2>
-    <p class="sub">A leggyakrabban felmerülő kérdések és válaszaink.</p>
-    <div class="faq">
-      <details>
-        <summary>Mely településeken vállalnak munkát?</summary>
-        <p>Budapest, Pest megye és Jász-Nagykun-Szolnok megye egész területén dolgozunk. Működési területünkön a bútor oda-vissza szállítása díjmentes.</p>
-      </details>
-      <details>
-        <summary>Kinek kell megoldania a szállítást?</summary>
-        <p>Senkinek — saját teherautónkkal és rakodóinkkal visszük el a bútort otthonából, majd a felújítás után vissza is szállítjuk. A bútorok sérülése kizárt.</p>
-      </details>
-      <details>
-        <summary>Mennyi idő egy komplett ülőgarnitúra kárpitozása?</summary>
-        <p>Modern (20 évnél fiatalabb) bútor esetén átlagosan 5 munkanap. Régebbi, antik daraboknál a restaurálás 10–20 munkanapot is igénybe vehet.</p>
-      </details>
-      <details>
-        <summary>Vállalnak garanciát?</summary>
-        <p>Igen, 1 év garanciát vállalunk minden elvégzett munkára és minden általunk felhasznált kárpitanyagra.</p>
-      </details>
-      <details>
-        <summary>Hozott anyagból is dolgoznak?</summary>
-        <p>A származási hely ismeretében és megfelelő minőség esetén igen — kérjük, egyeztessen velünk előre.</p>
-      </details>
-      <details>
-        <summary>Eltört rugót is javítanak?</summary>
-        <p>Igen, rugójavítást és szükség esetén komplett rugózatcserét is vállalunk fotelnél, kanapénál és ülőgarnitúránál is.</p>
-      </details>
-      <details>
-        <summary>Hogyan zajlik a munka menete?</summary>
-        <ol>
-          <li>Időpont egyeztetés</li>
-          <li>Részletes, díjmentes munkafelmérés</li>
-          <li>Kárpitanyag választás (2000+ minta, házhoz visszük)</li>
-          <li>Megbízási szerződés + 50% előleg</li>
-          <li>Bútor elszállítása</li>
-          <li>Kárpitozás elvégzése</li>
-          <li>Visszaszállítás, részletes átvétel, fizetés</li>
-        </ol>
-      </details>
-    </div>
-  </div>
-</section>
-
-<section id="kapcsolat">
-  <div class="wrap">
-    <h2>Kapcsolat</h2>
-    <p class="sub">Hívjon minket, vagy küldje el bútora fotóját — percek alatt elindul az árajánlat.</p>
-    <div class="contact">
-      <div class="cinfo">
-        <p><a class="phone-big" href="#">+36 70 771 38 88</a></p>
-        <p><b>Nyitvatartás:</b><br>H–P: 10:00–20:00<br>Szo–V: 10:00–16:00</p>
-        <p><b>Kárpit Szerviz Szolgáltató Kft.</b><br>Adószám: 14203835-2-13<br>Cégjegyzékszám: 13-09-117960</p>
-        <p><b>Működési terület:</b> egész Magyarország — a legtöbb településen ingyenes kiszállással.</p>
-      </div>
-      <form onsubmit="alert('Ez egy bemutató demó — az űrlap élesítése az átadás után történik.');return false;">
-        <div class="row"><input type="text" placeholder="Név" required></div>
-        <div class="row"><input type="tel" placeholder="Telefonszám" required></div>
-        <div class="row"><input type="email" placeholder="E-mail cím"></div>
-        <div class="row"><textarea rows="4" placeholder="Írja le röviden, milyen bútorról van szó..."></textarea></div>
-        <label class="consent"><input type="checkbox" required> Elolvastam és elfogadom az <a href="#" onclick="document.getElementById('gdpr').style.display='flex';return false;">Adatkezelési tájékoztatót</a>, és hozzájárulok adataim árajánlat-készítés céljából történő kezeléséhez.</label>
-        <button class="btn gold" type="submit" style="border:0;cursor:pointer;font-size:1rem">Árajánlat kérése</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<footer>
-  © 2009–2026 Kárpit Szerviz Kft. · Minden jog fenntartva ·
-  <a href="#" onclick="document.getElementById('gdpr').style.display='flex';return false;">Adatkezelési tájékoztató</a><br>
-  <em>Ez az oldal egy bemutató (demó) redesign-javaslat, nem a cég hivatalos honlapja.</em>
-</footer>
-
-<div id="gdpr" onclick="if(event.target===this)this.style.display='none'">
-  <div class="box">
-    <h3>Adatkezelési tájékoztató (kivonat)</h3>
-    <p><b>Adatkezelő:</b> Kárpit Szerviz Szolgáltató Kft. (adószám: 14203835-2-13, cégjegyzékszám: 13-09-117960).</p>
-    <p><b>A kezelt adatok köre:</b> az árajánlatkérő űrlapon megadott név, telefonszám, e-mail cím, cím, valamint a bútorról feltöltött fényképek.</p>
-    <p><b>Az adatkezelés célja:</b> árajánlat készítése és kapcsolatfelvétel az érdeklődővel. <b>Jogalapja:</b> az érintett hozzájárulása (GDPR 6. cikk (1) a) pont), illetve szerződéskötést megelőző lépések (6. cikk (1) b) pont).</p>
-    <p><b>Az adatkezelés időtartama:</b> az árajánlat érvényességéig, illetve a hozzájárulás visszavonásáig; szerződéskötés esetén a számviteli jogszabályok szerinti megőrzési ideig.</p>
-    <p><b>Adattovábbítás:</b> az adatokat harmadik félnek nem adjuk át, marketing célra nem használjuk.</p>
-    <p><b>Az Ön jogai:</b> tájékoztatást kérhet, kérheti adatai helyesbítését, törlését, az adatkezelés korlátozását, valamint panasszal élhet a NAIH-nál (naih.hu).</p>
-    <p><b>Kapcsolat adatkezelési ügyekben:</b> +36 70 771 38 88.</p>
-    <p style="color:#999;font-style:italic">Ez a szöveg a demó részeként készült kivonat — élesítés előtt jogi ellenőrzése szükséges.</p>
-    <button class="btn" onclick="document.getElementById('gdpr').style.display='none'">Bezárás</button>
-  </div>
-</div>
-
-<script>
-  document.querySelectorAll('.gal img').forEach(im => {
-    im.addEventListener('click', () => {
-      document.getElementById('lightbox-img').src = im.src;
-      document.getElementById('lightbox').style.display = 'flex';
-    });
-  });
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      document.getElementById('lightbox').style.display = 'none';
-      document.getElementById('gdpr').style.display = 'none';
-    }
-  });
-</script>
-
+<div class="announcement">INGYENES ELSŐ ÁLLAPOTFELMÉRÉS • BUDAPEST ÉS KÖRNYÉKE</div>
+<header class="header"><nav class="nav wrap"><a class="logo" href="#">Kárpit Szerviz<small>Bútorkárpitozás és felújítás</small></a><div class="links" id="navlinks"><a href="#szolgaltatasok">Szolgáltatások</a><a href="#miert">Miért minket?</a><a href="#referencia">Előtte–utána</a><a href="#kapcsolat">Kapcsolat</a><a class="nav-cta" href="#ajanlat">Árajánlat</a></div><button class="hamb" aria-label="Menü" aria-controls="navlinks" aria-expanded="false" onclick="const n=document.getElementById('navlinks');n.classList.toggle('open');this.setAttribute('aria-expanded',n.classList.contains('open'))">☰</button></nav></header>
+<main>
+<section class="hero"><div class="wrap"><div class="hero-copy"><div class="eyebrow">Több évtizedes kárpitos tapasztalat</div><h1>Régi bútora új életre kel.</h1><p>Kanapék, fotelek, antik bútorok és egyedi darabok teljes körű felújítása — gondos anyagválasztással és precíz kézi munkával.</p><div class="actions"><a class="btn" href="#ajanlat">Árajánlatot kérek</a><a class="btn light" href="#szolgaltatasok">Szolgáltatások</a></div></div></div></section>
+<div class="introbar"><div class="wrap"><div><b>✓</b> Egyedi anyagválasztás</div><div><b>✓</b> Szerkezeti javítás</div><div><b>✓</b> El- és visszaszállítás</div><div><b>✓</b> Átlátható ajánlat</div></div></div>
+<section class="feature"><div class="feature-grid"><div class="feature-image" role="img" aria-label="Felújított antik fotel egy kárpitos műhelyben"></div><div class="feature-copy"><div class="kicker">Értékmentés szakmai alapokon</div><h2>Nem lecseréljük. Megmentjük.</h2><p>Egy jó bútor szerkezete gyakran évtizedekkel túléli a kárpitját. Felmérjük a vázat, a rugózatot és a párnázást, majd olyan megoldást ajánlunk, amely visszaadja a darab kényelmét és karakterét.</p><div class="feature-list"><span>Kanapé és fotel</span><span>Antik és stílbútor</span><span>Ágy és fejvég</span><span>Közületi bútor</span></div><a class="btn" href="#ajanlat">Képes ajánlatkérés</a></div></div></section>
+<section class="services" id="szolgaltatasok"><div class="wrap"><div class="head"><div class="kicker">Megoldások különböző bútortípusokra</div><h2>Minden darab más gondoskodást igényel.</h2><p>A bútor szerkezetéhez, használatához és a kívánt megjelenéshez választjuk ki a megfelelő technológiát és kárpitanyagot.</p></div><div class="cards">
+<a class="card" href="#ajanlat"><img src="assets/sofa.png" alt="Felújított világos ülőgarnitúra"><div class="card-content"><h3>Ülőgarnitúrák</h3><p>Kanapék, fotelek és teljes garnitúrák szerkezeti és esztétikai megújítása.</p></div></a>
+<a class="card" href="#ajanlat"><img src="assets/antique.png" alt="Felújított antik fotel"><div class="card-content"><h3>Antik bútorok</h3><p>Stílbútorok értékőrző helyreállítása hagyományos részletekkel.</p></div></a>
+<a class="card" href="#ajanlat"><img src="assets/bed.png" alt="Egyedi kárpitozott ágy és fejvég"><div class="card-content"><h3>Ágyak és fejvégek</h3><p>Egyedi méretű, puha falpanelek, ágykeretek és elegáns fejvégek.</p></div></a>
+<a class="card" href="#ajanlat"><img src="assets/commercial.png" alt="Kárpitozott éttermi ülőhely"><div class="card-content"><h3>Közületi munkák</h3><p>Éttermek, szállodák és irodák strapabíró, egységes kárpitozása.</p></div></a>
+</div></div></section>
+<section class="why" id="miert"><div class="wrap why-grid"><div class="why-copy"><div class="kicker">Miért válasszon minket?</div><h2>A kárpitozás ne kockázat, hanem értékteremtés legyen.</h2><p>Nem univerzális megoldásokat kínálunk. Más szövet kell egy mindennap használt családi kanapéra, egy éttermi padra vagy egy százéves fotelre. Ezért az anyagot, a belső rétegrendet és a javítás módját mindig a bútorhoz igazítjuk.</p><p>Egy szakszerűen felújított darab nemcsak szebb lesz: visszakapja a tartását, kényelmét és akár újabb évtizedekig használható marad.</p></div><div class="checks"><div class="check"><b>Szakmai felmérés</b><span>A látható kárpit mellett a vázat, rugózatot és párnázást is ellenőrizzük.</span></div><div class="check"><b>Valós anyagválasztás</b><span>Kopásállóság, tisztíthatóság, tapintás és szín alapján segítünk dönteni.</span></div><div class="check"><b>Átlátható munkafolyamat</b><span>A munka megkezdése előtt egyeztetjük a várható tartalmat és költséget.</span></div><div class="check"><b>Hosszú távú eredmény</b><span>Nem elfedjük a hibát, hanem a szükséges rétegeket és szerkezeti részeket is javítjuk.</span></div></div></div></section>
+<section class="extras"><div class="wrap"><div class="head"><div class="kicker">Kibővített szolgáltatások</div><h2>A felméréstől az otthoni átadásig.</h2><p>Nem csak az új kárpitot készítjük el: a teljes folyamatban segítünk.</p></div><div class="extra-grid"><article class="extra"><div class="ico">🚚</div><h3>Szállítás és mozgatás</h3><p>A működési területen egyeztetett időpontban segítünk a bútor biztonságos elszállításában és visszajuttatásában.</p></article><article class="extra"><div class="ico">🎨</div><h3>Szövet- és színtanácsadás</h3><p>A helyiség hangulatához és a használat intenzitásához illő szövetet, bőrt, színt és részletmegoldást ajánlunk.</p></article></div></div></section>
+<section class="portfolio" id="referencia"><div class="wrap"><div class="head"><div class="kicker">Előtte és utána</div><h2>Az átalakulás önmagáért beszél.</h2><p>A kopott külső alatt sokszor értékes, menthető bútor rejtőzik.</p></div><div class="ba"><img src="assets/before-after.png" alt="Kopott fotel és a zöld bársonnyal felújított állapota"><div class="labels"><span>ELŐTTE</span><span>UTÁNA</span></div><div class="ba-caption"><b>Antik fotel teljes felújítása</b><span>Szerkezeti javítás • új párnázás • bársonykárpit</span></div></div></div></section>
+<section class="quote" id="ajanlat"><div class="wrap quote-grid"><div class="quote-copy"><div class="kicker">Árajánlat kérése</div><h2>Küldjön fotót a bútorról.</h2><p>A bútor típusa, mérete, állapota és néhány fénykép alapján előzetes tájékoztatást adunk, majd szükség esetén felmérést egyeztetünk.</p><p><b>Működési terület:</b><br>Budapest, Pest megye és Jász-Nagykun-Szolnok megye.</p></div><form onsubmit="event.preventDefault();alert('Ez egy bemutató űrlap, az adatküldés jelenleg nincs bekapcsolva.')"><label>Név<input required placeholder="Az Ön neve"></label><label>E-mail<input required type="email" placeholder="nev@email.hu"></label><label>Telefonszám<input placeholder="+36..."></label><label>Bútortípus<select><option>Kanapé / ülőgarnitúra</option><option>Fotel / szék</option><option>Antik bútor</option><option>Ágy / fejvég</option><option>Közületi munka</option></select></label><label class="full">Üzenet<textarea placeholder="Írja le a méretet, állapotot és a kívánt változtatást..."></textarea></label><button class="submit full">Ajánlatkérés elküldése</button><div class="form-note full">Bemutató űrlap: az adatok nem kerülnek elküldésre.</div></form></div></section>
+</main>
+<footer id="kapcsolat"><div class="wrap"><div class="footer-grid"><div><h3>Kárpit Szerviz</h3><p>Bútorkárpitozás, felújítás és egyedi munkák több évtizedes szakmai tapasztalattal.</p></div><div><h4>Szolgáltatások</h4><p><a href="#szolgaltatasok">Ülőgarnitúrák</a><br><a href="#szolgaltatasok">Antik bútorok</a><br><a href="#szolgaltatasok">Közületi munkák</a></p></div><div><h4>Kapcsolat</h4><p>Budapest és több megye<br><a href="#ajanlat">Árajánlat kérése</a></p></div></div><div class="fine">Webgyár bemutató demó — nem a vállalkozás hivatalos honlapja. A képek illusztrációk, az űrlap nem küld adatot.</div></div></footer>
 </body>
 </html>
